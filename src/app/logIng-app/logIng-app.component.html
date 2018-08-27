@@ -1,0 +1,136 @@
+<body >    
+   
+    <!--
+    <div class="titulo">
+        <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a><br><br>
+    </div>
+    <div class="card">
+        <h2> <i class="material-icons md-48">perm_identity</i> Inicio de sesion <i class="large material-icons">account_circle</i></h2>
+        <hr>
+        <form>
+            <div>           
+                <div class="col-auto">
+                <label><h4>Usuario ingrese Correo</h4></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="large material-icons">folder_shared</i></div>
+                    </div>
+                    <input type="text" class="form-control" name="correo"  placeholder="autobu@elpobla.com" [(ngModel)]="correolog">
+                    <ngb-alert *ngIf="alertUsuario" type="danger" (close)="alertCerrar()">   Este campo es necesario para el Correo de usuario ¡ </ngb-alert>
+                    <ngb-alert *ngIf="alertUsuarioIncorrecto" type="danger" (close)="alertCerrar()">  Usuario de ingreso Incorrecto ¡ </ngb-alert>
+                </div>
+                </div>
+                <br>
+                <div class="col-auto">
+                    <label><h4>Usuario ingrese Clave</h4></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">                    
+                            <div class="input-group-text"><i class="large material-icons">vpn_key</i></div>
+                        </div>
+                        <input type="password" class="form-control" name="clave"  placeholder="*************" [(ngModel)]="clave">
+                        <ngb-alert *ngIf="alertClave" type="danger" (close)="alertCerrar()">   Este campo es necesario para la clave ***** ¡  </ngb-alert>
+                        <ngb-alert *ngIf="alertClaveIncorrecto" type="danger" (close)="alertCerrar()">  Clave de ingreso  Incorrecta ¡ </ngb-alert>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    <div class="card">
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="entrar(mision)"> testing  <i class="large material-icons">gavel</i></button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="ingresaLogin(mision)"> Iniciar sesión  <i class="large material-icons">gavel</i></button>
+    </div>
+ 
+
+    -->
+   
+
+
+ <div class="titulo">    
+    <ngb-alert *ngIf="usuarioInactivo" type="danger" (close)="alertCerrar()"> <strong>Usuario inactivo</strong> </ngb-alert>
+    <ngb-alert *ngIf="usuarioNocreado" type="danger" (close)="alertCerrar()"> <strong>Usuario no existe</strong> </ngb-alert> 
+</div>
+<div class="modal-dialog text-center">
+    <div class="col-sm-8 main-section">
+        <h3>AUTOBUSES EL POBLADO LAURELES</h3> <br>
+        <div class="modal-content">
+            
+            <div class="col-12 user-img">   
+                <img [src]="logoImagePath" width="70%" height="100%">             
+            </div>
+        </div>
+        <br>
+        <div class="modal-content">
+            <div class="col-12 user-img">
+                <img src="" alt="">
+            </div>
+            
+            <form class="col-12">
+                <div class="form-group">
+                    <div class="col-auto">
+                        <label><h6>Usuario ingrese Correo</h6></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="large material-icons">folder_shared</i></div>
+                            </div>
+                            <input type="text" class="form-control" name="correo"  placeholder="autobu@elpobla.com" [(ngModel)]="correolog">
+                            <ngb-alert *ngIf="alertUsuario" type="danger" (close)="alertCerrar()">   Este campo es necesario para el Correo de usuario ¡ </ngb-alert>
+                            <ngb-alert *ngIf="alertUsuarioIncorrecto" type="danger" (close)="alertCerrar()">  Usuario de ingreso Incorrecto ¡ </ngb-alert>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <div class="col-auto">
+                        <label><h6>Usuario ingrese Clave</h6></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">                    
+                                <div class="input-group-text"><i class="large material-icons">vpn_key</i></div>
+                            </div>
+                            <input type="password" class="form-control" name="clave"  placeholder="*************" [(ngModel)]="clave">
+                            <ngb-alert *ngIf="alertClave" type="danger" (close)="alertCerrar()">   Este campo es necesario para la clave ***** ¡  </ngb-alert>
+                            <ngb-alert *ngIf="alertClaveIncorrecto" type="danger" (close)="alertCerrar()">  Clave de ingreso  Incorrecta ¡ </ngb-alert>
+                        </div>
+                    </div>
+                </div>                
+            </form>
+        </div>
+        <br>
+        <div class="modal-content">             
+            <form class="col-12"> 
+                <hr>
+                <div class="col-12 user-img">   
+                    <img [src]="loginImagePath" width="110px" height="80px">             
+                </div>
+                <div class="form-group">
+                    <label ><h3>A.P.L</h3></label>
+                </div>
+                
+                <button mat-raised-button class="btn btn-primary btn-lg btn-block" (click)="ingresaLogin(mision)" color="primary">Primary<i class="large material-icons">gavel</i></button>
+                <br>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<ng-template #mision let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title"> Te damos la bienvenida </h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>
+            Vamos a iniciar a trabajar en la aplicacion de
+            <strong>Autobuses el poblado</strong><br>! vamos ! click en el boton
+            <strong>Listo</strong> para continuar.
+        <br>
+        </p>
+    </div>
+    <div class="modal-footer">                
+        <button type="button" class="btn btn-warning" (click)="c('Close click')">Listo</button>
+    </div>
+</ng-template>
+
+</body>

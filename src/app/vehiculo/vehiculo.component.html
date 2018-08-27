@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">                         
+                <div class="card" style="width: 10rem;">          
+                    <div class="modal-dialog text-center">
+                        <div class="col-12 user-img">   
+                            <img [src]="fullImagePath" width="120px" height="100px">            
+                        </div>                                  
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title"><a class="navbar-brand" >Vehiculos </a></h5> <br><strong>A.P.L</strong><hr>
+                    <p class="card-text">
+                        Vehiculos que se incorpora para en el A.P.L
+                    </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button mat-raised-button color="primary" (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>
+                    </ul>
+                </div>        
+            </div>
+        </nav>
+        </div>
+        <div class="col-lg-9">
+    
+            <div *ngIf="crear_conductor" class="container-fluid">
+                <mat-toolbar>Crea  <i class="large material-icons"> add_circle</i></mat-toolbar>
+                <vehiculo-crear></vehiculo-crear>
+            </div>
+        
+            <div *ngIf="editar_conductor" class="container-fluid" >
+                <mat-toolbar>Editar <i class="material-icons"> build</i></mat-toolbar>
+                <vehiculo-editar></vehiculo-editar>
+            </div>
+        
+            <div *ngIf="ver_conductor" class="container-fluid">
+                <mat-toolbar>Ver <i class="large material-icons">visibility</i></mat-toolbar>
+                <vehiculo-ver></vehiculo-ver>
+            </div>
+        
+            <div *ngIf="eliminar_conductor" class="container-fluid">
+                <mat-toolbar>Eliminar <i class="material-icons"> delete_sweep</i></mat-toolbar>
+                <vehiculo-eliminar></vehiculo-eliminar>
+            </div>
+        </div>
+    </div>
+</div>
+        
+          
+      
+      
+      

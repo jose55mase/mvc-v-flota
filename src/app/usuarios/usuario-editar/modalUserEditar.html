@@ -1,0 +1,71 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        Editar
+        <mat-card-subtitle><a class="active"><img src="https://i0.wp.com/www.omdream.com/wp-content/uploads/Experiencia-Usuario.png?resize=256%2C256&ssl=1" width="150" height="100"></a></mat-card-subtitle>
+    </mat-card-header>
+         <p>
+            Usuario : {{user.nombre}} {{user.apellido}}
+        </p>
+    <mat-card-content>
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <a class="active"><img src="https://png.icons8.com/metro/1600/create-new.png" width="70" height="60"></a><br><br> 
+              </mat-expansion-panel-header>
+              <br>
+              <br>
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Nuevo usuario</mat-card-title>         
+                <mat-icon svgIcon="thumbs-up"></mat-icon>
+              </mat-card-header>
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Nombre de persona" name="nombre" [(ngModel)]="user.nombre">
+                </mat-form-field>
+              </div>  
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Apellido de persona" name="apellido" [(ngModel)]="user.apellido">
+                </mat-form-field>
+              </div>               
+              
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Correo de persona" name="correo" [(ngModel)]="user.correo">
+                </mat-form-field>   
+              </div>
+                  
+              
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <a class="active"><img src="https://png.icons8.com/metro/1600/create-new.png" width="70" height="60"></a><br><br> 
+              </mat-expansion-panel-header> 
+              <br>
+              <br>
+                <div class="form-group"> 
+                    <mat-form-field>
+                      <input type="number" matInput placeholder="Telefono de persona" name="telefono" [(ngModel)]="user.telefono">
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">   
+                    <mat-form-field>
+                      <input matInput placeholder="Usuario para la persona"  name="usuario" [(ngModel)]="user.usuario">
+                    </mat-form-field>
+                  </div>  
+                  <div class="form-group">   
+                    <mat-form-field>
+                        <input matInput placeholder="clave para la persona " name="clave" [(ngModel)]="user.clave">
+                    </mat-form-field>
+                  </div> 
+                     
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions>
+        
+        <button mat-button mat-dialog-close (click)="editar(user)">Editar este Usuario </button>       
+    </mat-card-actions>
+</mat-card>

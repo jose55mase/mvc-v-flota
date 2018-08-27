@@ -1,0 +1,147 @@
+<div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
+
+<div *ngIf = "!modelo; else resive">
+    <div class="container">     
+        <form [formGroup] = "formulario" (ngSubmit)= "add(formulario.value)">
+           
+            
+            <div class="form-group"><!--     Modelo para el vehiculo       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Modelo para el vehiculo </span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="modelo" placeholder="Modelo del vehiculo" [(ngModel)]="vehiculo.modelo">                        
+                </div>
+                <div *ngIf="formulario.controls.modelo.errors">
+                    <div *ngIf="formulario.controls.modelo.errors.pattern">
+                        <div class="alert alert-danger" role="alert"> El  modelo del vehiculo, Ejemplo : A-2 </div>    
+                    </div>
+                </div> 
+            </div>
+             
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Capasidad de carga para el vehiculo</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="capasidad_carga" placeholder="30.000" [(ngModel)]="vehiculo.capasidad_carga">                        
+                </div>
+                <div *ngIf="formulario.controls.capasidad_carga.errors">
+                    <div *ngIf="formulario.controls.capasidad_carga.errors.pattern">
+                        <div class="alert alert-danger" role="alert">  Ingresa solo Numeros</div>   
+                    </div>
+                </div> 
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Tipo de motor</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="tipo_motor" placeholder="GLP - GNC ..." [(ngModel)]="vehiculo.tipo_motor">                        
+                </div>
+                <div *ngIf="formulario.controls.tipo_motor.errors">
+                    <div *ngIf="formulario.controls.tipo_motor.errors.required">
+                        <div class="alert alert-warning" role="alert">  Este campo es requerido </div>
+                    </div>
+                </div>  
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">tipo caja velocidad</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="tipo_caja_velocidad" placeholder=" Manual " [(ngModel)]="vehiculo.tipo_caja_velocidad">                        
+                </div>                
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Trasmision</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="trasmision" placeholder="  " [(ngModel)]="vehiculo.trasmision">                        
+                </div>                
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Municipio matricula</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="municipio_matricula" placeholder="  " [(ngModel)]="vehiculo.municipio_matricula">                                           
+                </div>                
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Numero de motor</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="numero_motor" placeholder="  B 34 " [(ngModel)]="vehiculo.numero_motor">                        
+                </div>                
+            </div>
+
+
+            <div clsass="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Placa de vehiculo </span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="placa" placeholder="  " [(ngModel)]="vehiculo.placa">                        
+                </div>                
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Propietario del vehiculo </span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="propietario" placeholder=" Autobuces el poblado  " [(ngModel)]="vehiculo.propietario">                        
+                </div>                
+            </div>
+        
+            <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="crearVehiculo()" >Crear un daño</button>
+        </form> 
+    </div>
+</div>  
+    
+<ng-template  #resive class="form-inline">    
+    <div class="card" style="width: 18rem;">
+        <ngb-alert type="success">
+            <strong>Listo !</strong> se a creado con exito  <i class="material-icons">local_shipping</i>
+        </ngb-alert>
+        
+        
+        <div class="card-body">
+        <h5 class="card-title">Propietario {{vehiculo.propietario}}</h5>
+        <p class="card-text">Los datos para los daños  se <strong>crearon</strong> con <strong>exito</strong></p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{vehiculo.propietario}}</li>
+        <li class="list-group-item">{{vehiculo.propietario}}</li>
+        <li class="list-group-item">{{vehiculo.propietario}}</li>
+        </ul>
+        <div class="card-body">
+        <a href="#" class="card-link">Listo</a>      
+        </div>
+    </div>
+</ng-template>  
+    

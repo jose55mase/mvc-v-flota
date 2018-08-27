@@ -1,0 +1,13 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+ng-template{
+  padding: 100px 2064px 34px 100px;
+  padding-left: 80px;
+  padding-right: 30px;
+}

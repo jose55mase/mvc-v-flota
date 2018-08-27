@@ -1,0 +1,93 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">                        
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Modelo para el vehiculo </span>
+    </div>
+    <input type="text" class="form-control"    [(ngModel)]="vehiculo.modelo">                        
+
+</div>
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Capasidad de carga para el vehiculo</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.capasidad_carga">                        
+</div>
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Tipo de motor</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.tipo_motor">                        
+</div>
+
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">tipo caja velocidad</span>
+    </div>
+    <input type="text" class="form-control"  placeholder=" Manual " [(ngModel)]="vehiculo.tipo_caja_velocidad">                        
+</div>                
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Trasmision</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.trasmision">                        
+</div>                
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Municipio matricula</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="vehiculo.municipio_matricula">                                           
+</div>                
+
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Numero de motor</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.numero_motor">                        
+</div>                
+
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Placa de vehiculo </span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.placa">                        
+</div>                
+
+
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Propietario del vehiculo </span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="vehiculo.propietario">                        
+</div>                
+
+
+<button class="btn btn-primary btn-block" mat-dialog-close  (click)="editarVehiculo()" >Actualizar daño</button>

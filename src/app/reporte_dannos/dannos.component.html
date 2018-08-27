@@ -1,0 +1,51 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-lg-3">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        
+        <div class="card" style="width: 10rem;">          
+          <div class="modal-dialog text-center">
+            <div class="col-12 user-img">   
+                <img [src]="fullImagePath" width="120px" height="100px">            
+            </div>                                  
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a class="navbar-brand" >Daños reporte <br> </a></h5><strong>A.P.L</strong><hr>
+            <p class="card-text">
+              Los  daños de los vehiculos son constantes tomate la molestia y el tiempo de reportarlos para que nuestros tecnicos los puedan solucinar
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><button mat-raised-button color="primary" (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
+            <li class="list-group-item"><button mat-raised-button color="primary" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>            
+          </ul>
+        </div>        
+      </div>
+    </nav>
+  </div>
+  <div class="col-lg-9">
+    <div *ngIf="crear_conductor" class="container-fluid">
+      <mat-toolbar>Crea <i class="large material-icons"> add_circle</i></mat-toolbar>
+      <div class="container">  
+        <creaDannos></creaDannos>
+      </div>
+    </div>
+    
+    <div *ngIf="editar_conductor" class="container-fluid" >
+      <mat-toolbar>Editar</mat-toolbar>    
+    </div>
+
+    <div *ngIf="ver_conductor" class="container-fluid">
+      <mat-toolbar>Ver <i class="material-icons">visibility</i></mat-toolbar>
+      <listaDannos></listaDannos>    
+    </div>
+
+    <div *ngIf="eliminar_conductor" class="container-fluid">
+      <mat-toolbar>Eliminar</mat-toolbar>    
+    </div>
+  </div>
+</div>
+</div>
+  
+  

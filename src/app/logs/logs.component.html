@@ -1,0 +1,36 @@
+<div class="example-header">
+    <div class="form-group">
+      <h3>Buscar en la lista</h3> <i class="material-icons">search</i>   
+      <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control" placeholder=" Buscar en la lista"> 
+    </div>  
+  </div>
+
+<mat-table #table [dataSource]="dataSource">  
+  <!-- Position Columnas -->
+  <ng-container matColumnDef="usuario">
+    <mat-header-cell *matHeaderCellDef> <h6>Usuario</h6> </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.usuario}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="modulo">
+    <mat-header-cell *matHeaderCellDef> <h6>Tabla</h6> </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.modulo}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accion">
+    <mat-header-cell *matHeaderCellDef> <h6>Operacion</h6> </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accion}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="fecha">
+    <mat-header-cell *matHeaderCellDef> <h6>Fecha</h6> </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fecha}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<br>
+<mat-paginator #paginator
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 20]"
+  [showFirstLastButtons]="true">
+</mat-paginator>

@@ -1,0 +1,45 @@
+/*  ---------------------------- footer */
+
+
+.footer-texto{
+    color: brown;
+    background-color: transparent;
+    font-size: small;
+    position: fixed;
+    left: 30px;
+    bottom: 91%;
+    width: 0%;
+    border: brown;
+    align-content: center;     
+    z-index: 1;
+ 
+    left: 13%;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+} 
+.footer-left{
+    color: brown;
+    background-color: transparent;
+    font-size: small;
+    position: fixed;
+    left: 30px;
+    bottom: 91%;
+    width: 0%;
+    border: brown;
+    align-content: center;     
+    z-index: 1;
+ 
+    left: 70%;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+}
+
+
+
+/*  ---------------------------- footer */

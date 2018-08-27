@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a>
+        <mat-card-subtitle>Autobus</mat-card-subtitle>
+    </mat-card-header>
+        <h4><p><strong>Vehiculo</strong></p></h4>
+        
+    <mat-card-content>
+        <p> <strong>Nombre propietario : </strong>{{vehiculo.propietario}}</p> <br>
+        <p> <strong> Placa :</strong> {{vehiculo.placa}}</p> <br>
+        <p> <strong> Modelo : </strong> {{vehiculo.modelo}}</p> <br>        
+        <p> <strong> Capasidad de carga : </strong> {{vehiculo.capasidad_carga}}</p> <br>
+        <p> <strong> Vehiculo tipo de motor : </strong> {{vehiculo.tipo_motor}}</p> <br>
+        <p> <strong> Caja de Velocidad : </strong> {{vehiculo.tipo_caja_velocidad}}</p> <br>
+        <p> <strong> Trasmicion :</strong> {{vehiculo.trasmision}}</p> <br>
+        <p> <strong>Numero de motor :</strong> {{vehiculo.numero_motor}}</p> <br>
+        <p> <strong>Estado del Vehiculo:</strong> {{vehiculo.estado}}</p> <br>
+        
+        <mat-card-content>
+            <mat-radio-group>
+                <mat-radio-button [(ngModel)]="estado">Vehiculo activo</mat-radio-button>    
+            </mat-radio-group>        
+        </mat-card-content>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="btn btn-primary btn-block"  mat-dialog-close >Terminar</button>       
+    </mat-card-actions>
+</mat-card>

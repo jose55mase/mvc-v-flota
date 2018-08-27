@@ -1,0 +1,165 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a><br><br>
+
+
+    <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <h3>AUTOBUSES EL POBLADO LAURELES</h3> <br>
+        </div>
+    </div>
+       
+      <form class="form-inline">
+        <div *ngIf="usuarioLogMenu">
+          <button mat-button [matMenuTriggerFor]="menu">  {{lognombre}} {{logApellido}}</button>
+          <mat-menu #menu="matMenu" >
+            <button mat-menu-item>{{lognombre}} {{logApellido}}</button>
+            <button mat-menu-item>Usuario : {{logUsuario}}</button>
+            <button mat-menu-item> Tipo de usuario :  {{logCargo}}</button>
+            <a mat-button (click)="cerrarSesion()">  Cerrar sesion</a>
+          </mat-menu>
+        </div>
+         
+          <div class="menu-usuarios">
+              <button mat-button [matMenuTriggerFor]="menu" class="btn btn-info">Usuario <i class="material-icons">account_circle</i></button>
+              <mat-menu #menu="matMenu">
+                
+                  <mat-card class="example-card">
+                      <mat-card-header>             
+                          <mat-card-title>{{lognombre}} {{logApellido}}</mat-card-title>
+                          <div mat-card-avatar class="example-header-image"></div>                          
+                          <mat-card-title><h4>{{logCargo}}</h4></mat-card-title>
+                          <mat-card-subtitle>{{logUsuario}}</mat-card-subtitle>
+                                         
+                      </mat-card-header>
+                      
+                      <img mat-card-image src="data:image/jpeg;base64,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" alt="Photo of a Shiba Inu">
+                      <mat-card-content>
+                          <p>
+                          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                          bred for hunting.
+                          </p>
+                      </mat-card-content>
+                      <mat-card-actions>                          
+                          <button mat-button class="btn btn-warning" (click)="cerrarSesion()">Cerrar sesion <i class="material-icons">phonelink_lock</i></button>
+                      </mat-card-actions>
+                  </mat-card>
+              </mat-menu>
+          </div>
+      </form>
+    </nav>
+
+
+<!-- MODULOS POR TIPO DE USUARIO -->
+
+<mat-tab-group >    
+    <div *ngIf="!ayudas" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Ayudas">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">account_balance</i></mat-icon>
+                Inicio
+            </ng-template>
+            <div class="modal-dialog text-center">
+                    <div class="col-sm-10 main-section">
+                        <h3>AUTOBUSES EL POBLADO LAURELES</h3> <br>
+                        <h3>A.P.L</h3>
+                        <br>
+                            <div class="col-12 user-img">   
+                                <img [src]="inicioImagen" width="300px">             
+                            </div>
+                        <br>
+                        
+                        <div class="modal-content">
+                            <div class="fondo">
+                                <form class="col-12">
+                                    <div class="form-group">
+                                        <div class="col-auto">
+                                            <p>
+                                                Somos una empresa que trabajamos para ser mejores en el manejo de los recursos para nuestros pasajeros que nos prestan su tiempo para que nosotros podamos trasportarlos.
+                                            </p>
+                                        </div>
+                                    </div>                
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                    </div>                   
+                
+                </div>
+
+
+                
+        </mat-tab>
+    </div>
+    
+    <div *ngIf="!mantenimiento" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Mantenimiento autobus">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">local_shipping</i></mat-icon>
+                Mantenimiento autobus
+            </ng-template>
+            <app-mantenimiento></app-mantenimiento>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!dannos" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Reporte Daños autobus">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">directions_bus</i></mat-icon>
+                Reporte Daños autobus
+            </ng-template>
+            <dannos></dannos>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!usuarios" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Usuarios">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">how_to_reg</i></mat-icon>
+                Usuarios
+            </ng-template>
+            <app-usuarios></app-usuarios>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!conductor" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Conductores">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">airline_seat_recline_normal</i></mat-icon>
+                Conductores
+            </ng-template>
+            <conductor-modulo></conductor-modulo>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!conductor" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Tablas app">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">business</i></mat-icon>
+                Tablas A.P.L
+            </ng-template>
+            <tablas-app></tablas-app>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!conductor" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Tablas app">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">tram</i></mat-icon>
+                Vehiculo
+            </ng-template>
+            <vehiculo></vehiculo>
+        </mat-tab>
+    </div>
+
+    <div *ngIf="!logs" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Tablas app">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">gps_fixed</i></mat-icon>
+                Logs A.P.L
+            </ng-template>
+            <logs-app></logs-app>
+        </mat-tab>
+    </div>
+</mat-tab-group>
+      

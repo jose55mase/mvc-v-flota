@@ -1,0 +1,146 @@
+<div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
+<div div *ngIf = "!correo; else resive">
+  <div class="container">
+    <form [formGroup] = "formulario" (ngSubmit)="add(formulario.value)">
+      <div class="form-group row">
+        <div class="col-lg-5">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" formControlName = "nombre" placeholder=" Carlos mario " [(ngModel)]="user.nombre">
+          <div *ngIf="!formulario.controls['nombre'].minlength && formulario.controls['nombre'].touched">            
+              <div class="alert alert-danger"><strong>Completa</strong> este campo es necesario </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" formControlName = "apellido" placeholder=" Marulanda  " [(ngModel)]="user.apellido">
+          <div *ngIf="!formulario.controls['apellido'].minlength && formulario.controls['apellido'].touched">            
+              <div class="alert alert-danger"><strong>Completa </strong> este campo es necesario </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+          <label for="cedula">Cedula</label>
+          <input type="text" class="form-control" formControlName = "cedula"  placeholder=" 12345588 " [(ngModel)]="user.cedula">
+          <div *ngIf="!formulario.controls['cedula'].pattern && formulario.controls['cedula'].touched">            
+              <div class="alert alert-danger"><strong>Cedula para  usuarios!</strong>  mas de 5 numero. </div>
+          </div>
+        </div> 
+
+        <div class="col-lg-5">
+          <label for="correo">Correo se usa como login</label>
+          <input type="text" class="form-control" formControlName = "correo" placeholder=" autobuses@elpoblado.com " [(ngModel)]="user.correo">
+          <div *ngIf="!formulario.controls['correo'].pattern && formulario.controls['correo'].touched">            
+            <div class="alert alert-danger"><strong>Correo!</strong> Debes ingresar un correo electronico . </div>
+          </div>
+      
+        </div> 
+
+        <div class="col-lg-5">
+          <label for="telefono">Telefono</label>
+          <input type="text" class="form-control" formControlName = "telefono" placeholder=" 455884 " [(ngModel)]="user.telefono">
+          <div *ngIf="!formulario.controls['telefono'].minlength && formulario.controls['telefono'].touched">            
+            <div class="alert alert-danger"><strong>Telefono!</strong> ingresa un numero telefonico . </div>
+          </div>
+        </div> 
+
+        <div class="col-lg-5">
+          <label for="usuario">Usuario de inicio de sesión</label>
+          <input type="text" class="form-control" formControlName = "usuario" placeholder=" usuario " [(ngModel)]="user.usuario">
+          <div *ngIf="!formulario.controls['usuario'].minlength && formulario.controls['usuario'].touched">            
+            <div class="alert alert-danger"><strong>Usuaio de app!</strong> este campo es necesario </div>
+          </div>
+        </div> 
+ 
+        <div class="col-lg-10">
+          <label for="clave">Clave usuario</label>
+          <input type="password" class="form-control" formControlName = "clave" placeholder=" ************** " [(ngModel)]="user.clave">
+          <div *ngIf="!formulario.controls['clave'].minlength && formulario.controls['clave'].touched">            
+            <div class="alert alert-danger"><strong>Clave de app!</strong> este campo es necesario </div>
+          </div>
+        </div><br>
+        <div class="col-lg-10">
+          <label for="ConfirmarClave">Confirmar clave usuario </label>
+          <input type="password" class="form-control" formControlName = "ConfirmarClave" placeholder=" *************** " [(ngModel)]="ConfirmarClave">
+          <div *ngIf="!formulario.controls['ConfirmarClave'].required && (formulario.controls['ConfirmarClave'].touched && formulario.controls['ConfirmarClave'].valid )" class="alert alert-danger">            
+            <strong>Usuario de app!</strong> este campo es necesario.
+          </div>          
+
+        </div><br>
+        <br>
+        <br>
+        <div class="col-lg-5">
+          <mat-form-field>
+            
+            <mat-select placeholder="Seleccione Cargo"  formControlName = "cargo" [(ngModel)]="user.cargo">
+              <mat-option value="Invitado">Invitado</mat-option>
+              <mat-option value="Junta">Junta</mat-option>
+              <mat-option value="Gerencia">Gerencia</mat-option>
+              <mat-option value="Jefe Taller">Jefe Taller</mat-option>     
+              <mat-option value="Administrador">Administrador</mat-option>                
+            </mat-select>
+          </mat-form-field>
+        </div>  
+        
+
+        <div class="col-lg-10">
+          <label for="estado">Seleccina para tener el usuario activo</label>
+          <input   class="seleccion" type="radio" name="estado" [value]="true" formControlName = "estado" [(ngModel)]="user.estado">
+          <div *ngIf="!formulario.controls['estado'].minlength && formulario.controls['estado'].touched">            
+              <div class="alert alert-danger"><strong>Activa !</strong> este campo es necesario </div>
+            </div>
+        </div>
+      </div>       
+      
+
+      <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveOrUpdate(mision)">Crear un nuevo usuario</button> 
+    </form>
+  </div>
+</div>
+
+<div *ngIf="validarCorreo">
+  <ng-template  #resive class="form-inline">    
+    <div class="card" style="width: 18rem;">
+        <ngb-alert type="success">
+          <strong>Listo !</strong> se a creado con exito  <i class="material-icons">local_shipping</i>
+        </ngb-alert>
+        
+        
+      <div class="card-body">
+        <h5 class="card-title">{{user.apellido}}  {{user.nombre}}</h5>
+        <p class="card-text">El usuario se a  <strong>crearon</strong> con <strong>exito</strong></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{user.nombre}}</li>
+        <li class="list-group-item">{{user.cedula}}</li>
+        <li class="list-group-item">{{user.estado}}</li>
+        <li class="list-group-item">{{user.usuario}}</li>
+        <li class="list-group-item">{{user.correo}}</li>
+        <li class="list-group-item">Usuario : <strong>Activo</strong></li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Completo</a>      
+      </div>
+    </div>
+  </ng-template> 
+</div>
+
+<ng-template #mision let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <h4 class="modal-title"> Usuario Hola </h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <p>
+          Mira que este usuario ya 
+          <strong>existe</strong><br>valida el campo
+          <strong>Correo de usuario</strong> ! {{user.correo}} ¡ para continuar.
+      <br>
+      </p>
+  </div>
+  <div class="modal-footer">                
+      <button type="button" class="btn btn-warning" (click)="c('Close click')">Listo ?</button>
+  </div>
+</ng-template>

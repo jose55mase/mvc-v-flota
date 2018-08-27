@@ -1,0 +1,51 @@
+.menu-usuarios{
+    width: 200px;
+}
+
+
+.example-card {
+    max-width: 600px;
+    background-color: gray;
+   
+}
+
+.example-header-image {
+    background-image: url('../../assets/images/sesiones.png');
+    background-size: cover;
+}
+
+
+.titulo{
+    display: flex;
+    justify-content: center;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+
+}
+
+mat-tab-group{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+}
+
+mat-tab{
+    background-color: aqua;
+}
+
+.modal-conten{
+    align-content: center;
+}
+.fondo{
+    background: #E7E7E9;
+}
+.form-inline{
+    
+    z-index: 1;
+    font-size: x-small;
+
+}

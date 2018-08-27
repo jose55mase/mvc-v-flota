@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a>
+        <mat-card-subtitle>Autobus</mat-card-subtitle>
+    </mat-card-header>
+        <h4><p><strong>Vehiculo</strong></p></h4>
+        
+    <mat-card-content>
+        <p> <strong>Nombre propietario : </strong>{{vehiculo.propietario}}</p> <br>
+        <p> <strong> Placa :</strong> {{vehiculo.placa}}</p> <br>
+        <p> <strong> Modelo : </strong> {{vehiculo.modelo}}</p> <br>        
+        <p> <strong> Capasidad de carga : </strong> {{vehiculo.capasidad_carga}}</p> <br>
+        <p> <strong> Vehiculo tipo de motor : </strong> {{vehiculo.tipo_motor}}</p> <br>
+                
+        <mat-radio-group  [(ngModel)]="vehiculo.estado">
+            <mat-radio-button  [value]="false">Selecciona para eliminar </mat-radio-button>
+        </mat-radio-group>
+        => {{vehiculo.estado}}
+      
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="btn btn-primary btn-block"  mat-dialog-close (click)="eliminarVehiculo(vehiculo)" >Eliminar vehiculo</button>       
+        <button class="btn btn-primary btn-block"  mat-dialog-close > Salir </button>
+    </mat-card-actions>
+</mat-card>

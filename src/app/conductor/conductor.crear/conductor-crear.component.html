@@ -1,0 +1,82 @@
+<div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Nombres</span>
+    </div>
+    <input type="text" class="form-control" #uname = "ngModel" [pattern] = "nombre" name="nombre" placeholder="Nombres" [(ngModel)]="conductor.nombre">
+  </div>
+  <div *ngIf="uname.errors?.pattern"><div class="alert alert-danger" role="alert">Esto no parese ser un nombre !</div></div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Apellidos</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="conductor.apellido">
+  </div>
+
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Cedula</span>
+      </div>
+      <input type="text" class="form-control" placeholder="1069948" [(ngModel)]="conductor.cedula">
+    </div>  
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Correo electronico</span>
+    </div>
+    <input type="text" class="form-control" #correoValidar="ngModel" placeholder="autobuses@elpoblado.com" name="coreo" [pattern]="correo" [(ngModel)]="conductor.correo">
+  </div>
+  <div *ngIf="correoValidar.errors?.pattern"><div class="alert alert-danger" role="alert">Este correo no esta completo !</div></div>
+  
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Telefono</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="conductor.telefono">
+  </div>
+
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Tipo de conductor</span>
+      </div>
+    <select class="custom-select" id="inputGroupSelect04"  [(ngModel)]="conductor.tipo">    
+      <option value="caiman">Caiman</option>
+      <option value="conductor">Conductor</option>
+    </select>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Selecciona tipo</button>
+    </div>
+  </div>
+ 
+  <br>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Estado de conductor</span>
+      </div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" [value]="true" [(ngModel)]="conductor.estado">
+        <label class="form-check-label" for="gridRadios1">
+          Activo
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" [value]="false" [(ngModel)]="conductor.estado">
+        <label class="form-check-label" for="gridRadios2">
+            Inactivo
+        </label>
+      </div>
+    </div>
+  </div> 
+  <button type="button" class="btn btn-primary  btn-block" (click)="creaConductor()">Completar operación</button>
+</div>
+

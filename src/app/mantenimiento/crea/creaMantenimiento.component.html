@@ -1,0 +1,54 @@
+<div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
+<div *ngIf = "!informe; else resive">
+  <div class="container">       
+    <form [formGroup] = "formulario" (ngSubmit)= "add(formulario.value)">
+      <div class="form-group">
+        <label for="titulo">Titulo Mantenimiento</label>
+        <input type="text" class="form-control" formControlName = "titulo" placeholder="Titulo Mantenimiento" [(ngModel)]="mantenimiento.titulo">      
+      </div>   
+      
+      <div class="form-group">
+        <label for="estado">Estado vehiculo</label>
+        <select class="form-control" formControlName ="estado" [(ngModel)]="mantenimiento.estado_vehiculo">
+          <option value="Proceso">Proceso</option>
+          <option value="Inactivo">Inactivo</option>
+          <option value="Listo">Listo</option>
+          <option value="Estudio">Estudio</option>        
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Reporte">Reporte Daño</label>
+        <select class="form-control" id="estado" formControlName = "reporte" [(ngModel)]="mantenimiento.reporte_dannos" >
+          <option *ngFor="let item of dannos" [value]="item.titulo">Titulo : {{item.titulo}} -- Vehiculo : {{item.vehiculo}}</option>                  
+        </select>
+      </div>     
+      <div class="form-group">
+        <label for="informe">Informe Mantenimiento</label>
+        <textarea class="form-control" id="informe" rows="4" formControlName="informe" [(ngModel)]="mantenimiento.informe"></textarea>
+      </div>   
+    
+    <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveMantenimiento()" >Crear un daño</button>
+    </form> 
+  </div>
+</div>  
+
+
+
+
+<ng-template  #resive class="form-inline">    
+  <mat-card class="alert alert-success" ngbTooltip="Titulo para el informe de Mantenimiento">{{mantenimiento.titulo}}</mat-card>
+  <mat-card class="alert alert-success" ngbTooltip="Mantenimiento aplicado al vehiculo">{{mantenimiento.estado_vehiculo}}</mat-card>
+  <mat-card class="alert alert-success" ngbTooltip="Informacion del daño">{{mantenimiento.reporte_dannos}}</mat-card>
+  <mat-card class="alert alert-success" ngbTooltip="Informe del vehiculo en tanto al vehiculo">{{mantenimiento.informe}}</mat-card>
+</ng-template> 
+
+<input
+    (keyup)="searchTerm$.next($event.target.value)">
+
+<ul *ngIf="results">
+  <li *ngFor="let result of results | slice:0:9">
+    <a href="{{ result.latest }}" target="_blank">
+      {{ result.vehiculo }}
+    </a>
+  </li>
+</ul>

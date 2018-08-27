@@ -1,0 +1,80 @@
+<div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
+<div *ngIf = "!informe; else resive">
+  <div class="container">     
+    <form [formGroup] = "formulario" (ngSubmit)= "add(formulario.value)">
+      <div class="form-group">
+        <label for="titulo">Titulo informe de daños</label>  
+        <input type="text" class="form-control" formControlName="titulo"  placeholder="Titulo para este informe" [(ngModel)]="danno.titulo">      
+        <div *ngIf="!formulario.controls['titulo'].minlength && formulario.controls['titulo'].touched">            
+            <ngb-alert type="warning" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">Titulo es requerido Con mas de 6 letras !</ngb-alert>
+        </div>       
+      </div>  
+ 
+      <div class="form-group">
+        <label for="Reporte">Vehiculo afectado</label>
+        <select class="form-control"  formControlName ="vehiculo" [(ngModel)]="danno.vehiculo" >
+          <option  *ngFor="let item of vehiculo" [value]="item.name">  {{item.name}} ::  {{item.ruta}}</option>                  
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="informe">Informe de daños</label>
+        <textarea class="form-control" formControlName ="informe" rows="4"  placeholder="Realice una descripcion de el informe de daños para este vehiculo" [(ngModel)]="danno.informe"></textarea>
+        <div *ngIf="!formulario.controls['informe'].minlength && formulario.controls['informe'].touched">
+          <ngb-alert id="alert-danger" type="danger" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">Informe es requerido Con mas de 20 letras !</ngb-alert>
+        </div>
+      </div>  
+      
+      <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveDannos()" >Crear un daño</button>
+      
+    </form> 
+  </div>
+</div>  
+
+<ng-template  #resive class="form-inline">    
+  <div class="card" style="width: 18rem;">
+      <ngb-alert type="success">
+        <strong>Listo !</strong> se a creado con exito  <i class="material-icons">local_shipping</i>
+      </ngb-alert>
+      
+     
+    <div class="card-body">
+      <h5 class="card-title">{{danno.titulo}}</h5>
+      <p class="card-text">Los datos para los daños  se <strong>crearon</strong> con <strong>exito</strong></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{danno.vehiculo}}</li>
+      <li class="list-group-item">{{danno.informe}}</li>
+      <li class="list-group-item">{{danno.fecha}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>      
+    </div>
+  </div>
+</ng-template>  
+
+<!--  
+  <div class="column small-12 large-2">
+    <label class="sbw_light">Title:</label><br />
+    <select [(ngModel)]="passenger.Title">
+       <option *ngFor="#title of titleArray" [value]="title.Value">{{title.Text}}</option>
+    </select>
+  </div>
+
+
+
+
+  <div *ngIf = "!nombre; else resive">
+    <form [formGroup] = "formulario" (ngSubmit)="add(formulario.value)">
+        <label>nombre
+          <input type="text" formControlName="nombre" [(ngModel)]="danno.titulo">
+        </label>
+        <div *ngIf ="!formulario.controls['nombre'].valid && formulario.controls['nombre'].touched"> this is required </div>
+        <button mat-button  [disabled]="!formulario.valid"> Button </button>
+    </form>
+  </div>  
+  <ng-template #resive>
+    <div class="container"> hola </div>
+  </ng-template>
+    -->
