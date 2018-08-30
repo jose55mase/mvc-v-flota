@@ -51,8 +51,9 @@
     <ngb-alert *ngIf="usuarioNocreado" type="danger" (close)="alertCerrar()"> <strong>Usuario no existe</strong> </ngb-alert> 
 </div>
 <div class="modal-dialog text-center">
-    <div class="col-sm-8 main-section">
+    <div class="col-lg-15 main-section">
         <h3>AUTOBUSES EL POBLADO LAURELES</h3> <br>
+        <h3>A.P.L</h3>
         <div class="modal-content">
             
             <div class="col-12 user-img">   
@@ -61,11 +62,8 @@
         </div>
         <br>
         <div class="modal-content">
-            <div class="col-12 user-img">
-                <img src="" alt="">
-            </div>
-            
-            <form class="col-12">
+                        
+            <form class="col-lg-12">
                 <div class="form-group">
                     <div class="col-auto">
                         <label><h6>Usuario ingrese Correo</h6></label>
@@ -79,6 +77,7 @@
                         </div>
                     </div>                    
                 </div>
+
                 <div class="form-group">
                     <div class="col-auto">
                         <label><h6>Usuario ingrese Clave</h6></label>
@@ -91,25 +90,11 @@
                             <ngb-alert *ngIf="alertClaveIncorrecto" type="danger" (close)="alertCerrar()">  Clave de ingreso  Incorrecta ¡ </ngb-alert>
                         </div>
                     </div>
+                    <br>
+                    <button mat-raised-button class="btn btn-primary btn-lg btn-block" (click)="ingresaLogin(mision)" color="primary">Entrar A.P.L<i class="large material-icons">gavel</i></button>
                 </div>                
             </form>
-        </div>
-        <br>
-        <div class="modal-content">             
-            <form class="col-12"> 
-                <hr>
-                <div class="col-12 user-img">   
-                    <img [src]="loginImagePath" width="110px" height="80px">             
-                </div>
-                <div class="form-group">
-                    <label ><h3>A.P.L</h3></label>
-                </div>
-                
-                <button mat-raised-button class="btn btn-primary btn-lg btn-block" (click)="ingresaLogin(mision)" color="primary">Primary<i class="large material-icons">gavel</i></button>
-                <br>
-            </form>
-        </div>
-
+        </div>       
     </div>
 </div>
 
