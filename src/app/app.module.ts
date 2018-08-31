@@ -84,6 +84,7 @@ import { LogsAppComponent } from './logs/logs.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,6 +128,7 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalVehiculoEliminar,
     /*   LOGS   */
     LogsAppComponent,
+    
     
 
   ],
