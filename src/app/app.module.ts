@@ -72,6 +72,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ConductorCrearComponent } from './conductor/conductor.crear/conductor-crear.component';
 import { ConductorComponent } from './conductor/conductor.component';
 import { ConductorListarComponent } from './conductor/conductor-lista/conductor-list.component';
+import { ConductorEditarComponent, ModalConductorEditar } from './conductor/conductor.editar/conductor.editar.component';
 /*   TABLAS   */
 import { TablasComponent, ModalTabla } from './tablas/tablas.component';
 /*   VEHICULOS   */
@@ -81,6 +82,8 @@ import { VehiculoVerComponent, ModalVehiculoVista } from './vehiculo/ver/ver.veh
 import { VehiculoEditarComponent, ModalVehiculoEditar } from './vehiculo/editar/editar.vehiculo';
 import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eliminar/eliminar.vehiculo';
 import { LogsAppComponent } from './logs/logs.component';
+
+
 
 
 
@@ -114,6 +117,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ConductorComponent,
     ConductorCrearComponent,
     ConductorListarComponent,
+    ConductorEditarComponent,
+    ModalConductorEditar,
     /*   TABLAS   */
     TablasComponent,
     ModalTabla,
@@ -128,6 +133,7 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalVehiculoEliminar,
     /*   LOGS   */
     LogsAppComponent,
+    
     
     
 
@@ -146,6 +152,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalTabla,
     /*   LOGS   */
     LogsAppComponent,
+    /*   CANDUCTOR   */
+    ModalConductorEditar,
     
   ],
 
