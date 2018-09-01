@@ -3,15 +3,16 @@ import { Conductor } from '../../modelo/conductor.module';
 import { MatPaginator, MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { ConductorService } from '../service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalConductorEditar } from '../conductor.editar/conductor.editar.component';
 
 @Component({
-  selector: 'conductor-editar',
-  templateUrl: './conductor.editar.component.html',
-  styleUrls: ['./conductor.editar.component.css'],
+  selector: 'conductor-eliminar',
+  templateUrl: './conductor.eliminar.component.html',
+  styleUrls: ['./conductor.eliminar.component.css'],
 
   providers: [ConductorService]
 })
-export class ConductorEditarComponent implements OnInit {
+export class ConductorEliminarComponent implements OnInit {
   private conductor: Conductor[];
   displayedColumns = ['Nombre' ,'Correo'  ,'Tipo' ,'Accion'];
   dataSource;
@@ -46,18 +47,18 @@ export class ConductorEditarComponent implements OnInit {
   }
   public verConductor(conductor){
     sessionStorage.setItem('conductor', JSON.stringify(conductor));
-    this.ver.open(ModalConductorEditar, {});
+    this.ver.open(ModalConductorEliminar, {});
   }
 
 }
 
 
 @Component({  
-  templateUrl: './modalConductorEditar.html',  
+  templateUrl: './modalConductorEliminar.html',  
   providers: [ConductorService],
   
 })
-export class ModalConductorEditar implements OnInit{
+export class ModalConductorEliminar implements OnInit{
   conductor : Conductor;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private conductorService : ConductorService, private modalService: NgbModal ,public modal: MatDialogRef<ModalConductorEditar>) {
     if (sessionStorage.getItem("conductor")) {

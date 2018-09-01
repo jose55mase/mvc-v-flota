@@ -1,29 +1,47 @@
-<mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a>
-            <mat-card-subtitle><a class="active"><img src="https://i0.wp.com/www.omdream.com/wp-content/uploads/Experiencia-Usuario.png?resize=256%2C256&ssl=1" width="150" height="100"></a></mat-card-subtitle>
-        </mat-card-header>
-             <p>
-                Usuario
-            </p>
-        <mat-card-content>
-            <p>Nombre Persona :</p> <p>{{user.nombre}}</p> <br>
-            <p>Apellido Persona :</p> <p>{{user.apellido}}</p><br>
-            <p>Cedula Persona :</p> <p>{{user.cedula}}</p><br>
-            <p>Usuario Persona :</p> <p>{{user.usuario}}</p><br>
-            <p>Telefono Persona :</p> <p>{{user.telefono}}</p><br>
-            <p>Correo Usuario :</p> <p>{{user.correo}}</p><br>
-            <p>Cargo Usuario :  </p> <p>{{user.cargo}}</p><br>
-            
-            <mat-card-content>
-                <mat-radio-group>
-                    <mat-radio-button  [(ngModel)]="estado">Usuario activo</mat-radio-button>    
-                </mat-radio-group>        
-            </mat-card-content>
-        </mat-card-content>
-        <mat-card-actions>           
-            <button mat-button mat-dialog-close >Terminar</button>       
-        </mat-card-actions>
-    </mat-card>
-    
+Conductor : {{conductor.id}}
+<hr>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Nombres : {{conductor.nombre}}</span>
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Apellido : {{conductor.apellido}}</span>
+    </div>   
+</div>
+ 
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Cedula : {{conductor.cedula}}</span>
+    </div>   
+</div>    
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Correo : {{conductor.correo}}</span>
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Telefono : {{conductor.telefono}}</span>
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Tipo : {{conductor.tipo}}</span>
+    </div>   
+</div>
+
+<button  class="btn btn-primary  btn-block" (click)="salirModal()">Salir</button>
+
