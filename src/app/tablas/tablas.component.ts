@@ -13,65 +13,14 @@ import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@a
   styleUrls: ['./tablas.component.css'],
   providers: [ TablaService ]
 })
-export class TablasComponent implements OnInit {
-  fechaHoy = new Date();
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+export class TablasComponent {
 
+  conductor : boolean = false;
   
-
-  constructor(
-    private modalService: NgbModal,
-    private tablaService : TablaService,
-    public ver : MatDialog,
-  )
-  {    }
-  ngOnInit( ){ 
-    /* Tabla de los VEHICULOS */
-    this.getAllVehiculos();
-    this.vehiculoTabla()
+  verConductor(){
+    this.conductor = true;
   }
 
-
-  /* Tabla de los VEHICULOS */
-  dataSource: any;
-  private vehiculos : Vehiculo[];
-  displayedColumns = ['Propietario', 'Modelo', 'Placa', 'Accion'];
-  elemento =  new MatTableDataSource<Vehiculo>(this.vehiculos);
-  public modalVehiculo(vehiculo){
-    sessionStorage.setItem('vehiculo', JSON.stringify(vehiculo));
-    this.ver.open(ModalTabla);
-        
-  }
-  getAllVehiculos(){
-    this.tablaService.verVehiculos().subscribe(
-      dato => {
-        this.vehiculos = dato;
-      },
-      err => {
-        console.log(" tenemos problemas para traer ");
-      }
-    )
-  }
-  public abrirVehiculo(content){
-    this.modalService.open(content, { size: 'lg' });
-  }  
-  public vehiculoTabla(){    
-    this.tablaService.verVehiculos().subscribe(results =>{
-      if(!results){
-        return
-      }
-      this.dataSource = new MatTableDataSource(results);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.applyFilter = this.applyFilter;
-    })
-  }
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); 
-    filterValue = filterValue.toLowerCase(); 
-    this.dataSource.filter = filterValue;
-  }
-  
- 
 }
 
 @Component({  

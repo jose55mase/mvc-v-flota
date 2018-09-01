@@ -9,7 +9,12 @@
   <!-- Position Columnas -->
   <ng-container matColumnDef="Nombre">
     <mat-header-cell *matHeaderCellDef> <h4>Nombre</h4> </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    <mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element.estado">           
+            <mat-radio-button [disabled]="true" [value]="true"></mat-radio-button>        
+        </mat-radio-group>     
+      
+      {{element.nombre}} </mat-cell>
   </ng-container>
   
   <ng-container matColumnDef="Correo">
@@ -27,8 +32,8 @@
       <mat-header-cell *matHeaderCellDef> <h4>Accion</h4> </mat-header-cell>
       <mat-cell *matCellDef="let element">
         
-        <button mat-icon-button  class="btn btn-danger"  (click)="verConductor(element)" >
-          Eliminar Conductor <i class="material-icons"> delete_sweep</i>
+        <button mat-icon-button class="btn btn-warning"  (click)="verConductor(element)" >
+          Editar Conductor <i class="material-icons"> build</i>
         </button>
         
       </mat-cell>

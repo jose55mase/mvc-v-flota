@@ -1,50 +1,14 @@
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <i class="material-icons">local_offer</i>
-        <span class="input-group-text" id="basic-addon1">Nombres</span>
-    </div>
-    <input type="text" class="form-control" #uname = "ngModel" [pattern] = "nombre" name="nombre" placeholder="Nombres" [(ngModel)]="conductor.nombre">
+        <span class="input-group-text" id="basic-addon1">Nombres :: {{conductor.nombre}}</span>
+    </div>  
 </div>
   
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-    <i class="material-icons">local_offer</i>
-    <span class="input-group-text" id="basic-addon1">Apellidos</span>
-</div>
-<input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="conductor.apellido">
-</div>
-
-
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-    <i class="material-icons">local_offer</i>
-    <span class="input-group-text" id="basic-addon1">Correo electronico</span>
-</div>
-<input type="text" class="form-control" #correoValidar="ngModel" placeholder="autobuses@elpoblado.com" name="coreo" [pattern]="correo" [(ngModel)]="conductor.correo">
-</div>
-
-
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-    <i class="material-icons">local_offer</i>
-    <span class="input-group-text" id="basic-addon1">Telefono</span>
-</div>
-<input type="text" class="form-control" placeholder="Username" [(ngModel)]="conductor.telefono">
-</div>
-
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <i class="material-icons">local_offer</i>
-        <span class="input-group-text" id="basic-addon1">Tipo de conductor</span>
-    </div>
-    <select class="custom-select" id="inputGroupSelect04"  [(ngModel)]="conductor.tipo">    
-        <option value="caiman">Caiman</option>
-        <option value="conductor">Conductor</option>
-    </select>
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Selecciona tipo</button>
-    </div>
-</div>
+<mat-radio-group [(ngModel)]="conductor.estado">
+    <mat-radio-button value="false">Inactivar Conductor</mat-radio-button>
+       
+</mat-radio-group>
 
 <button  class="btn btn-primary  btn-block" (click)="editarConductor(content)">Completar operación</button>
 <button  class="btn btn-primary  btn-block" (click)="salirModal()">Salir</button>

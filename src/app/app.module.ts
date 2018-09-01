@@ -74,6 +74,7 @@ import { ConductorComponent } from './conductor/conductor.component';
 import { ConductorListarComponent, ModalConductorVista } from './conductor/conductor-lista/conductor-list.component';
 import { ConductorEditarComponent, ModalConductorEditar } from './conductor/conductor.editar/conductor.editar.component';
 import { ConductorEliminarComponent, ModalConductorEliminar } from './conductor/conductor.eliminar/conductor.eliminar.component';
+import { ModalConductorAdministrador, ConductorAdministradorComponent } from './conductor/conductor.administrador/conductor.administrador.component';
 /*   TABLAS   */
 import { TablasComponent, ModalTabla } from './tablas/tablas.component';
 /*   VEHICULOS   */
@@ -84,6 +85,7 @@ import { VehiculoEditarComponent, ModalVehiculoEditar } from './vehiculo/editar/
 import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eliminar/eliminar.vehiculo';
 /*   LOGS   */
 import { LogsAppComponent } from './logs/logs.component';
+
 
 
 
@@ -125,6 +127,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalConductorVista,
     ConductorEliminarComponent,
     ModalConductorEliminar,
+    ConductorAdministradorComponent,
+    ModalConductorAdministrador,
     /*   TABLAS   */
     TablasComponent,
     ModalTabla,
@@ -162,6 +166,7 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalConductorEditar,
     ModalConductorVista,
     ModalConductorEliminar,
+    ModalConductorAdministrador
     
   ],
 

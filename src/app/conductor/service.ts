@@ -18,13 +18,20 @@ export class ConductorService {
   private options = new RequestOptions({headers:this.headers})
   
   
-  private apiUrl = 'http://localhost:8080/getConductores';
+  private apiUrl = 'http://localhost:8080/getConductorTrue';
+  private apiUrlAll = 'http://localhost:8080/getConductores';
   
   constructor(private http: Http, public _http: HttpClient) {
   }
   //Lista Usuario
   findAll(): Observable<Conductor[]>  {
     return this.http.get(this.apiUrl)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
+  }
+
+  findAllAdmin(): Observable<Conductor[]>  {
+    return this.http.get(this.apiUrlAll)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
   }

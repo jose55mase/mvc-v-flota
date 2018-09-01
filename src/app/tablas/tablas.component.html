@@ -47,7 +47,7 @@
       <div class="col-lg-2">
         <div class="vertical-menu">
             <a class="active">Modulos APL <i class="material-icons">security</i></a>
-            <a >Conductores <i class="material-icons">airline_seat_recline_extra</i></a>
+            <a (click)="verConductor()" >Conductores <i class="material-icons">airline_seat_recline_extra</i></a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
             <a href="#">Link 4</a>
@@ -59,11 +59,9 @@
       </div>
       
       <div class="col-lg-10">
-        hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs
-         <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs
-          <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs
-           <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs
-         <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>hoadfs <br>
+        <div *ngIf="conductor">
+            <conductor-administrador></conductor-administrador>
+        </div>        
       </div>
     </div>
   </div>       
