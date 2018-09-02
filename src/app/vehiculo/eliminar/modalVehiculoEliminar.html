@@ -14,9 +14,8 @@
         <p> <strong> Vehiculo tipo de motor : </strong> {{vehiculo.tipo_motor}}</p> <br>
                 
         <mat-radio-group  [(ngModel)]="vehiculo.estado">
-            <mat-radio-button  [value]="false">Selecciona para eliminar </mat-radio-button>
-        </mat-radio-group>
-        => {{vehiculo.estado}}
+            <mat-radio-button  [value]="false">Inactivar Vehiculo</mat-radio-button>
+        </mat-radio-group>    
       
     </mat-card-content>
     <mat-card-actions>

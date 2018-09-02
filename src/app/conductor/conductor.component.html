@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-sm-3">
         <nav class="navbar navbar-default">
             <div class="container-fluid">            
             <div class="card" style="width: 10rem;">
@@ -9,14 +9,11 @@
                         <img [src]="fullImagePath" width="120px" height="100px">            
                     </div>                                  
                 </div>
-                <div class="card-body">
-                <h5 class="card-title"><a class="navbar-brand" >Conductores</a></h5> <strong>A.P.L</strong><hr>
-                <p class="card-text">
-                    Conductores que en el momento colaboran en nuestra causa para ser mejores gracias a ellos
-                </p>
+                <div class="card-body">                    
+                    <h5 class="card-title"><a class="navbar-brand" >Conductores</a></h5> <strong>A.P.L</strong>             
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item"><button mat-raised-button color="primary" (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
+                <li class="list-group-item"><button mat-raised-button color="primary"  (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
                 <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
                 <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
                 <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>

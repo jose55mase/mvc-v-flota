@@ -48,7 +48,7 @@
         <div class="vertical-menu">
             <a class="active">Modulos APL <i class="material-icons">security</i></a>
             <a (click)="verConductor()" >Conductores <i class="material-icons">airline_seat_recline_extra</i></a>
-            <a href="#">Link 2</a>
+            <a (click)="verVehiculo()">Vehiculos  <i class="material-icons">airport_shuttle</i></a>
             <a href="#">Link 3</a>
             <a href="#">Link 4</a>
             <a href="#">Link 5</a>
@@ -61,7 +61,13 @@
       <div class="col-lg-10">
         <div *ngIf="conductor">
             <conductor-administrador></conductor-administrador>
-        </div>        
+        </div>
+
+        <div *ngIf="vehiculo">
+            <vehiculo-administrador></vehiculo-administrador>
+        </div>
+        
+       
       </div>
     </div>
   </div>       

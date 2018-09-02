@@ -37,8 +37,6 @@
     <input type="text" class="form-control"  placeholder=" Manual " [(ngModel)]="vehiculo.tipo_caja_velocidad">                        
 </div>                
 
-
-
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <i class="material-icons">local_offer</i>
@@ -46,7 +44,6 @@
     </div>
     <input type="text" class="form-control"  [(ngModel)]="vehiculo.trasmision">                        
 </div>                
-
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
@@ -56,9 +53,6 @@
     <input type="text" class="form-control" [(ngModel)]="vehiculo.municipio_matricula">                                           
 </div>                
 
-
-
-
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <i class="material-icons">local_offer</i>
@@ -66,9 +60,6 @@
     </div>
     <input type="text" class="form-control"  [(ngModel)]="vehiculo.numero_motor">                        
 </div>                
-
-
-
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
@@ -78,9 +69,6 @@
     <input type="text" class="form-control"  [(ngModel)]="vehiculo.placa">                        
 </div>                
 
-
-
-
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <i class="material-icons">local_offer</i>
@@ -89,6 +77,11 @@
     <input type="text" class="form-control"  [(ngModel)]="vehiculo.propietario">                        
 </div>                
 
+
+<mat-radio-group [(ngModel)]="vehiculo.estado">
+    <mat-radio-button [value]="false">Inactivar Vehiculo</mat-radio-button>
+    <mat-radio-button [value]="true">Activar Vehiculo</mat-radio-button>        
+</mat-radio-group>
 
 <button class="btn btn-primary btn-block" mat-dialog-close  (click)="editarVehiculo(content)" >Completar operación</button>
 <button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>

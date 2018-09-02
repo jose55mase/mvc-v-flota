@@ -22,7 +22,8 @@ export class VehiculoService {
   
   constructor( private httpClient : HttpClient, private http : Http ) {  }
   private creaVehiculo = 'http://localhost:8080/saveVehiculos';
-  private verVehiculo = 'http://localhost:8080/getVehiculos'
+  private verVehiculo = 'http://localhost:8080/getVehiculos';
+  private verVehiculoAll = 'http://localhost:8080/getAllVehiculos'
 
   //GUARDA UN VEHICULO NUEVO
   public crearVehiculo( vehiculo : Vehiculo ): Observable<RestResponse>{
@@ -35,4 +36,10 @@ export class VehiculoService {
       .catch((error:any)=>Observable.throw(error.json().error || 'Estammos teniendo problemas'))
   }
 
+  public verVehiculosAll():Observable<Vehiculo[]>{
+    return this.http.get(this.verVehiculoAll)
+      .map((res:Response)=>res.json())
+      .catch((error:any)=>Observable.throw(error.json().error || 'Estammos teniendo problemas'))
+  }
+  
 }

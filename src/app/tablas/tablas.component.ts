@@ -16,9 +16,16 @@ import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@a
 export class TablasComponent {
 
   conductor : boolean = false;
-  
+  vehiculo : boolean = false;
   verConductor(){
     this.conductor = true;
+
+    this.vehiculo = false;
+  }
+  verVehiculo(){
+    this.vehiculo = true;
+
+    this.conductor = false;
   }
 
 }

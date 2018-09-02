@@ -1,0 +1,51 @@
+<div class="example-header">
+        <div class="form-group">
+          <h3>Buscar en la lista</h3> <i class="material-icons">search</i>   
+          <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control" placeholder=" Buscar en la lista"> 
+        </div>  
+      </div>
+    
+    <mat-table #table [dataSource]="dataSource">  
+      <!-- Position Columnas -->
+      <ng-container matColumnDef="Propietario">
+        <mat-header-cell *matHeaderCellDef> <h5>Propietario</h5> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <mat-radio-group [(ngModel)]="element.estado">                    
+                <mat-radio-button [disabled]="true" [value]="true"></mat-radio-button>        
+            </mat-radio-group>
+            {{element.propietario}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="Modelo">
+        <mat-header-cell *matHeaderCellDef>  <h5>Modelo</h5></mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.modelo}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="Placa">
+        <mat-header-cell *matHeaderCellDef> <h5> Placa </h5> </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.placa}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="Accion">
+          <mat-header-cell *matHeaderCellDef> <h5>Accion</h5> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            
+            <button mat-icon-button class="btn btn-warning" (click)="editarVehiculo(element)" >
+              <i class="large material-icons">search</i>
+            </button>
+            
+          </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+    
+    </mat-table>
+    
+    
+    <br>
+    <mat-paginator #paginator
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      [showFirstLastButtons]="true">
+    </mat-paginator>

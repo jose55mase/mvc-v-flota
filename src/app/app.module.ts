@@ -83,14 +83,9 @@ import { VehiculoCrearComponent } from './vehiculo/crear/crear.vehiculo';
 import { VehiculoVerComponent, ModalVehiculoVista } from './vehiculo/ver/ver.vehiculo';
 import { VehiculoEditarComponent, ModalVehiculoEditar } from './vehiculo/editar/editar.vehiculo';
 import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eliminar/eliminar.vehiculo';
+import { ModalVehiculoAdministrador, VehiculoAdministradorComponent } from './vehiculo/administrador/administrador.vehiculo';
 /*   LOGS   */
 import { LogsAppComponent } from './logs/logs.component';
-
-
-
-
-
-
 
 
 @NgModule({
@@ -141,6 +136,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalVehiculoEditar,
     VehiculoEliminarComponent,
     ModalVehiculoEliminar,
+    VehiculoAdministradorComponent,
+    ModalVehiculoAdministrador,
     /*   LOGS   */
     LogsAppComponent,
     
@@ -158,6 +155,7 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalVehiculoVista,
     ModalVehiculoEditar,
     ModalVehiculoEliminar,
+    ModalVehiculoAdministrador,
     /*   TABLAS   */
     ModalTabla,
     /*   LOGS   */

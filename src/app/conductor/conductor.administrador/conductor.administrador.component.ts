@@ -69,7 +69,10 @@ export class ModalConductorAdministrador implements OnInit{
 
   }
   
-  ngOnInit(){ this.getAllUsers(); };
+  ngOnInit(){ 
+    this.getAllUsers();
+    
+  };
   conductores : Conductor[];
   getAllUsers() {
     this.conductorService.findAllAdmin().subscribe(
