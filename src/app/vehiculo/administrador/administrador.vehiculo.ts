@@ -76,8 +76,7 @@ export class ModalVehiculoAdministrador implements OnInit{
   vehiculos : Vehiculo[];
   editarVehiculo(content): void {
     this.vehiculoService.crearVehiculo(this.vehiculo).subscribe(
-      dato => {  },
-      this.ver._afterAllClosed
+      dato => {  }      
     );
     this.modalService.open(content, { size: 'sm' });
   }

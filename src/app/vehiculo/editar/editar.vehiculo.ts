@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vehiculo } from '../../modelo/vehiculos.modele';
 import { VehiculoService } from '../vehiculoService';
 import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -64,7 +65,7 @@ export class VehiculoEditarComponent implements OnInit {
 })
 export class ModalVehiculoEditar implements OnInit{
   vehiculo: Vehiculo;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService, public ver : MatDialog) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService, public ver : MatDialog, private modalService: NgbModal) {
     if (sessionStorage.getItem("vehiculo")) {
       this.vehiculo = JSON.parse(sessionStorage.getItem("vehiculo"));
     } else {
@@ -75,10 +76,11 @@ export class ModalVehiculoEditar implements OnInit{
   estado = 'bien';
   ngOnInit(){  };
   vehiculos : Vehiculo[];
-  editarVehiculo(vehiculo : Vehiculo): void {
+  editarVehiculo(content): void {
     this.vehiculoService.crearVehiculo(this.vehiculo).subscribe(
       dato => {  },
-      this.ver._afterAllClosed
+      
     );
+    this.modalService.open(content, { size: 'sm' })
   }
 }

@@ -6,6 +6,7 @@ import { Vehiculo } from '../../modelo/vehiculos.modele';
 import { VehiculoService } from '../vehiculoService';
 import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { Alert } from 'selenium-webdriver';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -65,7 +66,7 @@ export class VehiculoEliminarComponent implements OnInit {
 })
 export class ModalVehiculoEliminar implements OnInit{
   vehiculo: Vehiculo;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService, private modalService: NgbModal) {
     if (sessionStorage.getItem("vehiculo")) {
       this.vehiculo = JSON.parse(sessionStorage.getItem("vehiculo"));
     } else {
@@ -76,10 +77,10 @@ export class ModalVehiculoEliminar implements OnInit{
   estado = 'bien';
   ngOnInit(){ /* */ };
   vehiculos : Vehiculo[];
-  public eliminarVehiculo(vehiculo : Vehiculo): void {
+  public eliminarVehiculo(content): void {
     this.vehiculoService.crearVehiculo(this.vehiculo).subscribe(
-      dato => {  },
-      
+      dato => {  },      
     );
+    this.modalService.open(content, { size: 'sm' });
   }
 }
