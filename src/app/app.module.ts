@@ -58,6 +58,7 @@ import { MantenimientoComponent } from './mantenimiento/mantenimiento.component'
 import { CreaMantenimientoComponent } from './mantenimiento/crea/creaMantenimiento.component';
 import { ListarMantenimientoComponent } from './mantenimiento/listar/listarMantenimiento.component';
 import { EditarMantenimientoComponent, ModalMantenimientoEditar } from './mantenimiento/editar/editarMantenimiento.component';
+import { EliminarMantenimientoComponent, ModalMantenimientoEliminar } from './mantenimiento/eliminar/eliminarMantenimiento.component';
 /*  PARA INICIAR SESION   */
 import { LoginGuard } from './logIng-app/login.guard';
 import { LogInAppComponent } from './logIng-app/logIng-app.component';
@@ -90,6 +91,7 @@ import { LogsAppComponent } from './logs/logs.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +102,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ListarMantenimientoComponent,
     EditarMantenimientoComponent,
     ModalMantenimientoEditar,
+    EliminarMantenimientoComponent,
+    ModalMantenimientoEliminar,
     /*  REPORTE DE DAÑOS   */    
     DannosComponent,
     ListaDannosComponent,
@@ -171,6 +175,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalConductorAdministrador,
     /*  MANTENIMIENTO   */
     ModalMantenimientoEditar,
+    EliminarMantenimientoComponent,
+    ModalMantenimientoEliminar,
     
   ],
 

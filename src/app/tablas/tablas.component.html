@@ -35,39 +35,35 @@
       
  </div>
 -->
- 
 
- 
- 
-              
- 
- <div class="container-fluid">
-    
+<div class="container-fluid">
     <div class="row">
-      <div class="col-lg-2">
+        <div class="col-lg-2">
         <div class="vertical-menu">
             <a class="active">Modulos APL <i class="material-icons">security</i></a>
             <a (click)="verConductor()" >Conductores <i class="material-icons">airline_seat_recline_extra</i></a>
             <a (click)="verVehiculo()">Vehiculos  <i class="material-icons">airport_shuttle</i></a>
-            <a href="#">Link 3</a>
+            <a (click)="verMantenimiento()">Mantenimiento  <i class="material-icons">airport_shuttle</i></a>
             <a href="#">Link 4</a>
             <a href="#">Link 5</a>
             <a href="#">Link 6</a>
             <a href="#">Link 7</a>
             <a href="#">Link 8</a>              
-          </div>
-      </div>
-      
-      <div class="col-lg-10">
-        <div *ngIf="conductor">
-            <conductor-administrador></conductor-administrador>
-        </div>
-
-        <div *ngIf="vehiculo">
-            <vehiculo-administrador></vehiculo-administrador>
+            </div>
         </div>
         
-       
-      </div>
+        <div class="col-lg-10">
+            <div *ngIf="conductor">
+                <conductor-administrador></conductor-administrador>
+            </div>
+
+            <div *ngIf="vehiculo">
+                <vehiculo-administrador></vehiculo-administrador>
+            </div>
+
+            <div *ngIf="mantenimiento">
+                
+            </div>
+        </div>
     </div>
-  </div>       
+</div>       

@@ -17,15 +17,25 @@ export class TablasComponent {
 
   conductor : boolean = false;
   vehiculo : boolean = false;
+  mantenimiento : boolean = false;
+
   verConductor(){
     this.conductor = true;
-
+    
     this.vehiculo = false;
+    this.mantenimiento = false;
   }
   verVehiculo(){
     this.vehiculo = true;
 
     this.conductor = false;
+    this.mantenimiento = false;
+  }
+  verMantenimiento(){
+    this.mantenimiento = true;
+
+    this.conductor = false;
+    this.vehiculo = false;
   }
 
 }

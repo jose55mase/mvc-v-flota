@@ -35,6 +35,11 @@ export class MantenimientoService {
     return this.httpClient.post<RestResponse>(this.saveUrl, JSON.stringify(mantenimiento));
   }
 
+  // Eliminar mantenimiento
+  public delete(mantenimiento : Mantenimiento){
+    this.http.post("http://localhost:8080/deleteMantenimiento", JSON.stringify(mantenimiento)).subscribe();
+  }
+
   search(terms: Observable<Dannos>) {
     return terms.debounceTime(400)
       .distinctUntilChanged()

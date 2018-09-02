@@ -1,0 +1,55 @@
+<h3>Mantenimiento</h3><hr>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">                        
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Mantenimiento :  </span>
+    </div>
+    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.titulo">
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">                        
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Inform :  </span>
+    </div>
+    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.informe">
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">                        
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Reporte del daño :  </span>
+    </div>
+    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.reporte_dannos">
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">                        
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="inputGroupSelect05">Estado del vehiculo :  </span>
+    </div>
+    <select class="custom-select" id="inputGroupSelect05"  [(ngModel)]="mantenimiento.estado_vehiculo">
+        <option value="Proceso">Proceso</option>
+        <option value="Inactivo">Inactivo</option>
+        <option value="Listo">Listo</option>
+        <option value="Estudio">Estudio</option>        
+    </select>
+</div>            
+
+<button class="btn btn-primary btn-block" mat-dialog-close  (click)="eliminarMantenimiento(mantenimiento)" >Completar operación</button>
+<button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>
+
+<ng-template #mantenimiento let-c="close" let-d="dismiss">            
+         
+    <div class="alert alert-success">
+        <h5>operación  <strong>exitosa</strong> </h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>    
+    </div> 
+        
+    <div class="modal-body">
+        <p>A.P.L</p>
+        <button class="btn btn-primary" (click)="c('Save click')">Listo !</button>
+    </div>        
+</ng-template>
