@@ -88,6 +88,7 @@ import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eli
 import { ModalVehiculoAdministrador, VehiculoAdministradorComponent } from './vehiculo/administrador/administrador.vehiculo';
 /*   LOGS   */
 import { LogsAppComponent } from './logs/logs.component';
+import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } from './mantenimiento/administrador/administradorMantenimiento.component';
 
 
 
@@ -104,6 +105,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalMantenimientoEditar,
     EliminarMantenimientoComponent,
     ModalMantenimientoEliminar,
+    AdministradorMantenimientoComponent,
+    ModalMantenimientoAdministrador. 
     /*  REPORTE DE DAÑOS   */    
     DannosComponent,
     ListaDannosComponent,
@@ -177,6 +180,7 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalMantenimientoEditar,
     EliminarMantenimientoComponent,
     ModalMantenimientoEliminar,
+    
     
   ],
 
