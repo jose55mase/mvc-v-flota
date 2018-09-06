@@ -11,14 +11,14 @@
             </div>                                  
           </div>
           <div class="card-body">
-            <h5 class="card-title"><a class="navbar-brand" >Daños reporte <br> </a></h5><strong>A.P.L</strong><hr>
-            <p class="card-text">
-              Los  daños de los vehiculos son constantes tomate la molestia y el tiempo de reportarlos para que nuestros tecnicos los puedan solucinar
-            </p>
+            <h5 class="card-title"><a class="navbar-brand" >Daños reporte <br> </a></h5><strong>A.P.L</strong>
+            
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><button mat-raised-button color="primary" (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
-            <li class="list-group-item"><button mat-raised-button color="primary" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>            
+            <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
+            <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
+            <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>         
           </ul>
         </div>        
       </div>
@@ -33,7 +33,8 @@
     </div>
     
     <div *ngIf="editar_conductor" class="container-fluid" >
-      <mat-toolbar>Editar</mat-toolbar>    
+      <mat-toolbar>Editar</mat-toolbar>
+      <editarDannos></editarDannos>   
     </div>
 
     <div *ngIf="ver_conductor" class="container-fluid">
@@ -42,7 +43,8 @@
     </div>
 
     <div *ngIf="eliminar_conductor" class="container-fluid">
-      <mat-toolbar>Eliminar</mat-toolbar>    
+      <mat-toolbar>Eliminar</mat-toolbar>
+      <eliminarDannos></eliminarDannos>
     </div>
   </div>
 </div>

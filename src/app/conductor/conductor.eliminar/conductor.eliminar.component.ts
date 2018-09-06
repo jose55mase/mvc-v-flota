@@ -69,18 +69,8 @@ export class ModalConductorEliminar implements OnInit{
 
   }
   
-  ngOnInit(){ this.getAllUsers(); };
-  conductores : Conductor[];
-  getAllUsers() {
-    this.conductorService.findAll().subscribe(
-      dato => {
-        this.conductores = dato;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
+  ngOnInit(){  };
+  
   
   closeResult: string;
   public editarConductor(content){

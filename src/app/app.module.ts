@@ -53,12 +53,16 @@ import { AppRoutingModule } from './app.routes';
 import { CreaDannosComponent } from './reporte_dannos/crea/creaDannos.component';
 import { ListaDannosComponent } from './reporte_dannos/lista/listaDannos.component';
 import { DannosComponent } from './reporte_dannos/dannos.component';
+import { ModalDannosEditar, EditarDannosComponent } from './reporte_dannos/editar/editarDannos.component';
+import { ModalDannosEliminar, EliminarDannosComponent } from './reporte_dannos/eliminar/eliminarDannos.component';
+
 /*  MANTENIMIENTO   */
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 import { CreaMantenimientoComponent } from './mantenimiento/crea/creaMantenimiento.component';
 import { ListarMantenimientoComponent } from './mantenimiento/listar/listarMantenimiento.component';
 import { EditarMantenimientoComponent, ModalMantenimientoEditar } from './mantenimiento/editar/editarMantenimiento.component';
 import { EliminarMantenimientoComponent, ModalMantenimientoEliminar } from './mantenimiento/eliminar/eliminarMantenimiento.component';
+import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } from './mantenimiento/administrador/administradorMantenimiento.component';
 /*  PARA INICIAR SESION   */
 import { LoginGuard } from './logIng-app/login.guard';
 import { LogInAppComponent } from './logIng-app/logIng-app.component';
@@ -88,7 +92,9 @@ import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eli
 import { ModalVehiculoAdministrador, VehiculoAdministradorComponent } from './vehiculo/administrador/administrador.vehiculo';
 /*   LOGS   */
 import { LogsAppComponent } from './logs/logs.component';
-import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } from './mantenimiento/administrador/administradorMantenimiento.component';
+
+
+
 
 
 
@@ -106,11 +112,16 @@ import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } 
     EliminarMantenimientoComponent,
     ModalMantenimientoEliminar,
     AdministradorMantenimientoComponent,
-    ModalMantenimientoAdministrador. 
+    ModalMantenimientoAdministrador, 
     /*  REPORTE DE DAÑOS   */    
     DannosComponent,
     ListaDannosComponent,
     CreaDannosComponent,
+    EditarDannosComponent,
+    ModalDannosEditar,
+    EliminarDannosComponent,
+    ModalDannosEliminar,
+
     /*  PARA INICIAR SESION   */
     LogInAppComponent,
     /*   INICIAR APP   */
@@ -180,6 +191,10 @@ import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } 
     ModalMantenimientoEditar,
     EliminarMantenimientoComponent,
     ModalMantenimientoEliminar,
+    ModalMantenimientoAdministrador,
+    /*  REPORTE DE DAÑOS   */ 
+    ModalDannosEditar,
+    ModalDannosEliminar,
     
     
   ],

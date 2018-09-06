@@ -1,0 +1,42 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Titulo</span>
+    </div>
+    <input type="text" class="form-control" #uname = "ngModel" [pattern] = "nombre" name="nombre" [disabled]= "true" placeholder="Nombres" [(ngModel)]="danno.titulo">
+</div>
+  
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Informe</span>
+    </div>
+    <input type="textarea" class="form-control" placeholder="Apellidos" [(ngModel)]="danno.informe">
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Vehiculo</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="danno.vehiculo">
+</div>
+
+<button class="btn btn-primary btn-block" mat-dialog-close  (click)="editarDanno(content)" >Completar operación</button>
+<button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+         
+    <div class="alert alert-success">
+        <h5>operación  <strong>exitosa</strong> </h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>    
+    </div> 
+        
+    <div class="modal-body">
+        <p>A.P.L</p>
+        <button class="btn btn-primary" (click)="c('Save click')">Listo !</button>
+    </div>        
+</ng-template>
+      

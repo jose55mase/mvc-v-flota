@@ -68,7 +68,6 @@ export class ModalMantenimientoEditar implements OnInit{
     } else {
       this.mantenimiento = new Mantenimiento();
     }
-
   }
   ngOnInit(){  };
 

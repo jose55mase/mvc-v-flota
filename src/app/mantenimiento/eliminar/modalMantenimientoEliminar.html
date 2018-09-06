@@ -2,9 +2,9 @@
 <div class="input-group mb-3">
     <div class="input-group-prepend">                        
         <i class="material-icons">local_offer</i>
-        <span class="input-group-text" id="basic-addon1">Mantenimiento :  </span>
+        <span class="input-group-text" id="basic-addon1">Mantenimiento Titulo :  </span>
     </div>
-    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.titulo">
+    <input type="text" class="form-control"  [disabled]="true"  [(ngModel)]="mantenimiento.titulo">
 </div>
 
 <div class="input-group mb-3">
@@ -12,7 +12,7 @@
         <i class="material-icons">local_offer</i>
         <span class="input-group-text" id="basic-addon1">Inform :  </span>
     </div>
-    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.informe">
+    <input type="text" class="form-control"  [disabled]="true"  [(ngModel)]="mantenimiento.informe">
 </div>
 
 <div class="input-group mb-3">
@@ -20,26 +20,15 @@
         <i class="material-icons">local_offer</i>
         <span class="input-group-text" id="basic-addon1">Reporte del daño :  </span>
     </div>
-    <input type="text" class="form-control"    [(ngModel)]="mantenimiento.reporte_dannos">
+    <input type="text" class="form-control" [disabled]="true"   [(ngModel)]="mantenimiento.reporte_dannos">
 </div>
 
-<div class="input-group mb-3">
-    <div class="input-group-prepend">                        
-        <i class="material-icons">local_offer</i>
-        <span class="input-group-text" id="inputGroupSelect05">Estado del vehiculo :  </span>
-    </div>
-    <select class="custom-select" id="inputGroupSelect05"  [(ngModel)]="mantenimiento.estado_vehiculo">
-        <option value="Proceso">Proceso</option>
-        <option value="Inactivo">Inactivo</option>
-        <option value="Listo">Listo</option>
-        <option value="Estudio">Estudio</option>        
-    </select>
-</div>            
+    
 
-<button class="btn btn-primary btn-block" mat-dialog-close  (click)="eliminarMantenimiento(mantenimiento)" >Completar operación</button>
+<button class="btn btn-danger btn-block" mat-dialog-close  (click)="confirmarEliminar(content)" (click)="eliminarMantenimiento(mantenimiento)" >Completar operación</button>
 <button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>
 
-<ng-template #mantenimiento let-c="close" let-d="dismiss">            
+<ng-template #content let-c="close" let-d="dismiss">            
          
     <div class="alert alert-success">
         <h5>operación  <strong>exitosa</strong> </h5>

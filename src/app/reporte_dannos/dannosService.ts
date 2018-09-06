@@ -33,4 +33,9 @@ export class DannosService {
   public guardarDanno(dannos : Dannos):Observable<RestResponse>{
     return this.httpClient.post<RestResponse>(this.cUrl, JSON.stringify(dannos));
   }
+
+  //Eliminar
+  public delete(dannos : Dannos) : void{
+    this.http.post("http://localhost:8080/deleteDannos", JSON.stringify(dannos)).subscribe();
+  }
 }

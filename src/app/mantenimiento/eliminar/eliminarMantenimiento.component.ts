@@ -33,7 +33,7 @@ export class EliminarMantenimientoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;  
   elemento =  new MatTableDataSource<Mantenimiento>(this.mantenimientos);
   
-  verMantenimiento(mantenimiento){
+  eliminarMantenimiento(mantenimiento){
     sessionStorage.setItem('mantenimiento', JSON.stringify(mantenimiento))
     this.ver.open(ModalMantenimientoEliminar)
   }
@@ -68,12 +68,13 @@ export class ModalMantenimientoEliminar implements OnInit{
     } else {
       this.mantenimiento = new Mantenimiento();
     }
-
   }
   ngOnInit(){  };
-
-  eliminarMantenimiento(mantenimiento){
+  
+  public confirmarEliminar(content){
+    this.modalService.open(content, { size: 'sm' });
+  }
+  public eliminarMantenimiento(mantenimiento){
     this.mantenimientoService.delete(mantenimiento)
-    
   }
 }
