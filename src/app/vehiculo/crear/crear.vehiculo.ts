@@ -4,6 +4,7 @@ import { BoundEventAst } from '@angular/compiler';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vehiculo } from '../../modelo/vehiculos.modele';
 import { VehiculoService } from '../vehiculoService';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class VehiculoCrearComponent implements OnInit {
   formulario : FormGroup;
   private vehiculo : Vehiculo; 
   modelo :string; 
-  constructor(private fb:FormBuilder, private vehiculoServise : VehiculoService) {
+  constructor(private fb:FormBuilder, private vehiculoServise : VehiculoService,  private modalService: NgbModal) {
     this.vehiculo = new Vehiculo()
         
   }
@@ -25,6 +26,9 @@ export class VehiculoCrearComponent implements OnInit {
   }
   
 
+  validarClaveLog(content){
+    this.modalService.open(content, { size: 'sm' })
+  }
   public validar( ){
     this.formulario = this.fb.group({
       'modelo':[null, Validators.compose([Validators.required, Validators.pattern("[Aa-zZ].*[0-9]")])],

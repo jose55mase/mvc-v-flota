@@ -44,8 +44,7 @@ export class CreaDannosComponent implements OnInit {
   }
   //Gurdar daños
   public saveDannos(): void{
-    this.dannosService.guardarDanno(this.danno).subscribe( dato =>{ alert("listo") });
-    
+    this.dannosService.guardarDanno(this.danno).subscribe( dato =>{ alert("listo") })    
   }
 
   vehiculo: any=[

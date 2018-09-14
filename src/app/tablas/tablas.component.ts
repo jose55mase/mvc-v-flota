@@ -18,26 +18,36 @@ export class TablasComponent {
   conductor : boolean = false;
   vehiculo : boolean = false;
   mantenimiento : boolean = false;
+  dannos : boolean = false;
 
   verConductor(){
     this.conductor = true;
     
+    this.dannos =  false;
     this.vehiculo = false;
     this.mantenimiento = false;
   }
   verVehiculo(){
     this.vehiculo = true;
 
+    this.dannos =  false;
     this.conductor = false;
     this.mantenimiento = false;
   }
   verMantenimiento(){
     this.mantenimiento = true;
 
+    this.dannos =  false;
     this.conductor = false;
     this.vehiculo = false;
   }
+  verDanno(){
+    this.dannos =  true;
 
+    this.conductor = false;
+    this.mantenimiento = false;
+    this.vehiculo = false;
+  }
 }
 
 @Component({  

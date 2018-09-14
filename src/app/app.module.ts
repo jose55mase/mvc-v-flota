@@ -55,6 +55,7 @@ import { ListaDannosComponent } from './reporte_dannos/lista/listaDannos.compone
 import { DannosComponent } from './reporte_dannos/dannos.component';
 import { ModalDannosEditar, EditarDannosComponent } from './reporte_dannos/editar/editarDannos.component';
 import { ModalDannosEliminar, EliminarDannosComponent } from './reporte_dannos/eliminar/eliminarDannos.component';
+import { ModalDannosAdministrador, AdministradorDannosComponent } from './reporte_dannos/administrador/administradorDannos.component';
 
 /*  MANTENIMIENTO   */
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
@@ -92,9 +93,10 @@ import { VehiculoEliminarComponent, ModalVehiculoEliminar } from './vehiculo/eli
 import { ModalVehiculoAdministrador, VehiculoAdministradorComponent } from './vehiculo/administrador/administrador.vehiculo';
 /*   LOGS   */
 import { LogsAppComponent } from './logs/logs.component';
-
-
-
+/*   ROLES   */
+import { RolUsuarioComponent } from './rolUsuario/rolUsuario.component';
+/*   SEGURIDAD   */
+import { SeguridadComponent } from './rolUsuario/seguridad.component';
 
 
 
@@ -121,6 +123,8 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalDannosEditar,
     EliminarDannosComponent,
     ModalDannosEliminar,
+    AdministradorDannosComponent,
+    ModalDannosAdministrador,
 
     /*  PARA INICIAR SESION   */
     LogInAppComponent,
@@ -162,6 +166,10 @@ import { LogsAppComponent } from './logs/logs.component';
     ModalVehiculoAdministrador,
     /*   LOGS   */
     LogsAppComponent,
+    /*   ROLES   */
+    RolUsuarioComponent,
+    /*   SEGURIDAD   */
+    SeguridadComponent
     
     
     
@@ -195,6 +203,7 @@ import { LogsAppComponent } from './logs/logs.component';
     /*  REPORTE DE DAÑOS   */ 
     ModalDannosEditar,
     ModalDannosEliminar,
+    ModalDannosAdministrador
     
     
   ],

@@ -51,22 +51,7 @@ export class LogInAppComponent {
     this.alertUsuarioIncorrecto = false;
   }
   
-  public entrar(content){
-    if(this.correolog === "josemase55@gmail.com" && this.clave === "12345"){ 
-      this.router.navigate( ['/inicio-router'] );              
-      this.modalService.open(content, { size: 'sm' });
-      localStorage.setItem('correoLogUser',this.correolog);
-      this.alertClave = false;
-      this.alertUsuario = false;
-      this.alertClaveIncorrecto = false;
-      this.alertUsuarioIncorrecto = false;
-      this.usuarioInactivo = false;
-      
-      this.correolog = null;
-      this.clave = null ;
-    }  
-  }
-  
+  // VALIDAR INICO DE SESION
   public ingresaLogin( content ){
     this.userService.findAll().subscribe( users => {
       this.arrayUsuario = users;
@@ -128,6 +113,7 @@ export class LogInAppComponent {
               this.alertUsuarioIncorrecto = false;
               this.usuarioInactivo = false;
               localStorage.setItem('correoLogUser',this.correolog);
+              localStorage.setItem('rolUsuario', this.arrayUsuario[elemento].cargo)
               this.correolog = null;
               this.clave = null ;              
               this.router.navigate( ['/inicio-router'] );              

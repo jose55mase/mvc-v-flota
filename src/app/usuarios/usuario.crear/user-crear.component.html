@@ -1,104 +1,163 @@
 <div class="alert alert-warning" role="alertdialog">Completa y llena todos los campos con mira <strong>ROJA</strong></div>
-<div div *ngIf = "!correo; else resive">
-  <div class="container">
-    <form [formGroup] = "formulario" (ngSubmit)="add(formulario.value)">
-      <div class="form-group row">
-        <div class="col-lg-5">
-          <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" formControlName = "nombre" placeholder=" Carlos mario " [(ngModel)]="user.nombre">
-          <div *ngIf="!formulario.controls['nombre'].minlength && formulario.controls['nombre'].touched">            
-              <div class="alert alert-danger"><strong>Completa</strong> este campo es necesario </div>
-            </div>
-        </div>
+{{input}}
 
-        <div class="col-lg-5">
-          <label for="apellido">Apellido</label>
-          <input type="text" class="form-control" formControlName = "apellido" placeholder=" Marulanda  " [(ngModel)]="user.apellido">
-          <div *ngIf="!formulario.controls['apellido'].minlength && formulario.controls['apellido'].touched">            
-              <div class="alert alert-danger"><strong>Completa </strong> este campo es necesario </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-          <label for="cedula">Cedula</label>
-          <input type="text" class="form-control" formControlName = "cedula"  placeholder=" 12345588 " [(ngModel)]="user.cedula">
-          <div *ngIf="!formulario.controls['cedula'].pattern && formulario.controls['cedula'].touched">            
-              <div class="alert alert-danger"><strong>Cedula para  usuarios!</strong>  mas de 5 numero. </div>
-          </div>
-        </div> 
-
-        <div class="col-lg-5">
-          <label for="correo">Correo se usa como login</label>
-          <input type="text" class="form-control" formControlName = "correo" placeholder=" autobuses@elpoblado.com " [(ngModel)]="user.correo">
-          <div *ngIf="!formulario.controls['correo'].pattern && formulario.controls['correo'].touched">            
-            <div class="alert alert-danger"><strong>Correo!</strong> Debes ingresar un correo electronico . </div>
-          </div>
-      
-        </div> 
-
-        <div class="col-lg-5">
-          <label for="telefono">Telefono</label>
-          <input type="text" class="form-control" formControlName = "telefono" placeholder=" 455884 " [(ngModel)]="user.telefono">
-          <div *ngIf="!formulario.controls['telefono'].minlength && formulario.controls['telefono'].touched">            
-            <div class="alert alert-danger"><strong>Telefono!</strong> ingresa un numero telefonico . </div>
-          </div>
-        </div> 
-
-        <div class="col-lg-5">
-          <label for="usuario">Usuario de inicio de sesión</label>
-          <input type="text" class="form-control" formControlName = "usuario" placeholder=" usuario " [(ngModel)]="user.usuario">
-          <div *ngIf="!formulario.controls['usuario'].minlength && formulario.controls['usuario'].touched">            
-            <div class="alert alert-danger"><strong>Usuaio de app!</strong> este campo es necesario </div>
-          </div>
-        </div> 
- 
-        <div class="col-lg-10">
-          <label for="clave">Clave usuario</label>
-          <input type="password" class="form-control" formControlName = "clave" placeholder=" ************** " [(ngModel)]="user.clave">
-          <div *ngIf="!formulario.controls['clave'].minlength && formulario.controls['clave'].touched">            
-            <div class="alert alert-danger"><strong>Clave de app!</strong> este campo es necesario </div>
-          </div>
-        </div><br>
-        <div class="col-lg-10">
-          <label for="ConfirmarClave">Confirmar clave usuario </label>
-          <input type="password" class="form-control" formControlName = "ConfirmarClave" placeholder=" *************** " [(ngModel)]="ConfirmarClave">
-          <div *ngIf="!formulario.controls['ConfirmarClave'].required && (formulario.controls['ConfirmarClave'].touched && formulario.controls['ConfirmarClave'].valid )" class="alert alert-danger">            
-            <strong>Usuario de app!</strong> este campo es necesario.
-          </div>          
-
-        </div><br>
-        <br>
-        <br>
-        <div class="col-lg-5">
-          <mat-form-field>
+<div *ngIf = "!nombre; else resive">
+    <div class="container">     
+        <form [formGroup] = "formulario" (ngSubmit)= "add(formulario.value)">
+           
             
-            <mat-select placeholder="Seleccione Cargo"  formControlName = "cargo" [(ngModel)]="user.cargo">
-              <mat-option value="Invitado">Invitado</mat-option>
-              <mat-option value="Junta">Junta</mat-option>
-              <mat-option value="Gerencia">Gerencia</mat-option>
-              <mat-option value="Jefe Taller">Jefe Taller</mat-option>     
-              <mat-option value="Administrador">Administrador</mat-option>                
-            </mat-select>
-          </mat-form-field>
-        </div>  
-        
-
-        <div class="col-lg-10">
-          <label for="estado">Seleccina para tener el usuario activo</label>
-          <input   class="seleccion" type="radio" name="estado" [value]="true" formControlName = "estado" [(ngModel)]="user.estado">
-          <div *ngIf="!formulario.controls['estado'].minlength && formulario.controls['estado'].touched">            
-              <div class="alert alert-danger"><strong>Activa !</strong> este campo es necesario </div>
+            <div class="form-group"><!--     Nombres     -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="nombre" placeholder="Nombre" [(ngModel)]="user.nombre">                        
+                </div>
+                <div *ngIf="formulario.controls.nombre.errors">
+                    <div *ngIf="formulario.controls.nombre.errors.pattern">
+                        <div class="alert alert-danger" role="alert">  esto <strong>{{user.nombre}}</strong>, no parece un nombre, Solo en mayusculas y sin numeros</div>    
+                    </div>
+                </div> 
             </div>
-        </div>
-      </div>       
-      
+             
+            <div class="form-group"><!--   Apellidos       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">apellido</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="apellido" placeholder="Apellidos" [(ngModel)]="user.apellido">                        
+                </div>
+                <div *ngIf="formulario.controls.apellido.errors">
+                    <div *ngIf="formulario.controls.apellido.errors.pattern">
+                        <div class="alert alert-danger" role="alert">  esto <strong>{{user.apellido}}</strong>, no parece un nombre, Solo en mayusculas y sin numeros</div>    
+                    </div>
+                </div> 
+            </div>
 
-      <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveOrUpdate(mision)">Crear un nuevo usuario</button> 
-    </form>
-  </div>
-</div>
+            <div class="form-group"><!--   Cedula       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Cedula</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="cedula" placeholder="Cedula" [(ngModel)]="user.cedula">                        
+                </div>
+                <div *ngIf="formulario.controls.cedula.errors">
+                    <div *ngIf="formulario.controls.cedula.errors.pattern">
+                        <div class="alert alert-danger" role="alert"> Se requiere una cedula, Solo numeros</div>    
+                    </div>
+                </div> 
+            </div>
 
-<div *ngIf="validarCorreo">
+            <div class="form-group"><!--   correo       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Correo electronico</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="correo" placeholder="laureles@APL.com" [(ngModel)]="user.correo">
+                </div>
+                <div *ngIf="formulario.controls.correo.errors">
+                    <div *ngIf="formulario.controls.correo.errors.pattern">
+                        <div class="alert alert-danger" role="alert"> Esto no es un correo. Completalo</div>    
+                    </div>
+                </div> 
+            </div>
+
+            <div class="form-group"><!--   Telefono       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Telefono</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="telefono" placeholder="984563" [(ngModel)]="user.telefono">
+                </div>
+                <div *ngIf="formulario.controls.telefono.errors">
+                    <div *ngIf="formulario.controls.telefono.errors.pattern">
+                        <div class="alert alert-danger" role="alert"> Un telefono ? </div>    
+                    </div>
+                </div> 
+            </div>
+
+            <div class="form-group"><!--   Usuario       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Usuario</span>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="usuario" placeholder="" [(ngModel)]="user.usuario">
+                </div>               
+            </div>
+
+            <div class="form-group"><!--   Clave       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Clave</span>
+                    </div>
+                    <input type="password" class="form-control"  formControlName="clave" placeholder="**********" [(ngModel)]="user.clave">
+                    <button mat-flat-button color="accent"  (click)="validarClaveLog(validar)" [disabled]="hide">Disabled</button>
+                </div>
+                <div *ngIf="formulario.controls.clave.touched">
+                    <div *ngIf="formulario.controls.clave.touched">
+                        <div class="alert alert-warning" role="alert"> 
+                            <div class="example-container">
+                                <mat-form-field>
+                                    <input matInput placeholder="Estas segur@ ?"  [value]="user.clave" [type]="hide ? 'password' : 'text'">
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                </mat-form-field>
+                            </div>
+                        </div>    
+                    </div>
+                </div>            
+            </div>
+
+
+            <div class="form-group"><!--   Cargo       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Cargo</span>
+                    </div>
+                    <mat-form-field>            
+                        <mat-select placeholder="Seleccione Cargo"  formControlName = "cargo" [(ngModel)]="user.cargo">
+                            <mat-option value="Invitado">Invitado</mat-option>
+                            <mat-option value="Junta">Junta</mat-option>
+                            <mat-option value="Gerencia">Gerencia</mat-option>
+                            <mat-option value="Jefe Taller">Jefe Taller</mat-option>     
+                            <mat-option value="Administrador">Administrador</mat-option>                
+                        </mat-select>
+                    </mat-form-field>
+                </div>                
+            </div>
+
+            
+            <div class="form-group"><!--   estado       -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">                        
+                        <i class="material-icons">local_offer</i>
+                        <span class="input-group-text" id="basic-addon1">Estado</span>
+                    </div>
+                    <div class="col-lg-10">
+                        <label for="estado">Seleccina para tener el usuario activo</label>
+                        <input   class="seleccion" type="radio" name="estado" [value]="true" formControlName = "estado" [(ngModel)]="user.estado">
+                        <div *ngIf="!formulario.controls.estado.required">            
+                            <div class="alert alert-danger"><strong>Activa !</strong> este campo es necesario </div>
+                            </div>
+                        </div>
+                </div>                 
+            </div>                   
+            <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveOrUpdate()">Crear un nuevo usuario</button>
+        </form> 
+    </div>
+</div>  
+
+
+
+
+
   <ng-template  #resive class="form-inline">    
     <div class="card" style="width: 18rem;">
         <ngb-alert type="success">
@@ -123,8 +182,9 @@
       </div>
     </div>
   </ng-template> 
-</div>
 
+
+<!--
 <ng-template #mision let-c="close" let-d="dismiss">
   <div class="modal-header">
       <h4 class="modal-title"> Usuario Hola </h4>
@@ -144,3 +204,25 @@
       <button type="button" class="btn btn-warning" (click)="c('Close click')">Listo ?</button>
   </div>
 </ng-template>
+
+<ng-template #validar let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title"> Usuario Hola </h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>
+            Mira que este usuario ya 
+            <strong>existe</strong><br>valida el campo
+            <strong>Correo de usuario</strong> ! {{user.correo}} ¡ para continuar.
+        <br>
+        </p>
+    </div>
+    <div class="modal-footer">                
+        <button type="button" class="btn btn-warning" (click)="c('Close click')">Listo ?</button>
+    </div>
+</ng-template>
+
+-->

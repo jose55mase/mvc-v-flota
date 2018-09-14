@@ -1,0 +1,63 @@
+<div class="example-header">
+  <div class="form-group">
+    <h3>Buscar en la lista</h3> <i class="material-icons">search</i>   
+    <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control" placeholder=" Buscar en la lista"> 
+  </div>  
+</div>
+
+<mat-table #table [dataSource]="dataSource">  
+<!-- Position Columnas -->
+<ng-container matColumnDef="Titulo">
+  <mat-header-cell *matHeaderCellDef> <h4>Titulo</h4> </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Vehiculo">
+  <mat-header-cell *matHeaderCellDef>  <h4>Vehiculo</h4></mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.vehiculo}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Fecha">
+  <mat-header-cell *matHeaderCellDef> <h4> Fecha </h4> </mat-header-cell>
+  <mat-cell  *matCellDef="let element"> {{element.fecha}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Accion">
+  <mat-header-cell *matHeaderCellDef> <h4>Accion</h4> </mat-header-cell>
+  <mat-cell *matCellDef="let element">
+    
+    <button mat-icon-button class="btn btn-warning"  (click)="verDanno(element)" >
+      <i class="material-icons"> search</i>
+    </button>
+    
+  </mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+</mat-table>
+
+
+<br>
+<mat-paginator #paginator
+[pageSize]="5"
+[pageSizeOptions]="[5, 10, 20]"
+[showFirstLastButtons]="true">
+</mat-paginator>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

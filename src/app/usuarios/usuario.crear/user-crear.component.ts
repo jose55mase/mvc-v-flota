@@ -14,16 +14,32 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   providers: [UserService]
 })
 export class UserCrearComponent implements OnInit {
-  private user : User 
+  private user : User
+  
   users : User[];
-  correo :string;
+  nombre :string;
   validarCorreo : boolean = false;
   formulario : FormGroup;
+  public usuario : User;
+  input : string;
+  content: any;
+  hide : boolean = true;
   
 
-  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private modalService: NgbModal) { 
-    this.user = new User();  
+  ngOnInit() { 
+    this.validar();
+    this.getUsuarios();
+    this.saveOrUpdate(this.content);
+    this.input = this.usuario.clave
+    
   }
+
+  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private modalService: NgbModal) { 
+    this.user = new User();
+ 
+  }
+
+
 
   public getUsuarios(){
     this.userService.getUser().subscribe(
@@ -34,43 +50,47 @@ export class UserCrearComponent implements OnInit {
           }else{
             this.validarCorreo = true;
           }
-        }        
+        }
+        
       }     
     )
   }
   
+
   public validar( ){
     this.formulario = this.fb.group({
-      'nombre':[null, Validators.compose([Validators.required])],
-      'apellido':[null, Validators.compose([Validators.required])],
+      'nombre':[null, Validators.compose([Validators.required, Validators.pattern("[A-Z].*[A-Z]")])],
+      'apellido':[null, Validators.compose([Validators.required, Validators.pattern("[A-Z].*[A-Z]")])],
       'cedula':[null, Validators.compose([Validators.required, Validators.pattern('[0-9]{7,11}')])],
-      'correo':[null, Validators.compose([Validators.required, Validators.email])],
+      'correo':[null, Validators.compose([Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")])],
       'telefono':[null, Validators.compose([Validators.required, Validators.pattern('[0-9]{7,10}')])],
+      
       'usuario':[null, Validators.compose([Validators.required])],
       'clave':[null, Validators.compose([Validators.required])],
       'cargo':[null, Validators.compose([Validators.required])],
-      'estado':[null, Validators.compose([Validators.required])],
-      'ConfirmarClave':[null, Validators.compose([Validators.required])]
-
+      'estado':[null, Validators.compose([Validators.required])],   
+      
     })
   }
+  // Validar clave *************
+  public validarClaveLog(content){
+    this.modalService.open(content, { size: 'sm' })
+  }
+
+  
   add(algo){
-    this.correo = algo.correo;
+    this.nombre = algo.nombre;
   }
-  public saveOrUpdate(content): void{
-    if(this.validarCorreo){      
-      this.userService.saveOrUpdate(this.user).subscribe(      
-        dato => {  }        
-      )     
-    }else{
-      this.modalService.open(content, { size: 'sm' })
-    }
-  }
-  ngOnInit() { 
-    this.validar();
-    this.getUsuarios();
+
+   
+  public saveOrUpdate(content): void{  
+    this.userService.saveOrUpdate(this.user).subscribe(       
+      dato => {  }
+    )          
   }
 }
+
+
 @Component({  
   templateUrl: './modalUserCrea.html',  
   providers: [UserService]

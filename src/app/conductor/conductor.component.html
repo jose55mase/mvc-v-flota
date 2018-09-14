@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
         <div class="col-sm-3">
         <nav class="navbar navbar-default">
@@ -13,10 +13,18 @@
                     <h5 class="card-title"><a class="navbar-brand" >Conductores</a></h5> <strong>A.P.L</strong>             
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item"><button mat-raised-button color="primary"  (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
-                <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
-                <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
-                <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>
+                <div *ngIf="crearAccion">
+                    <li class="list-group-item"><button mat-raised-button color="primary"  (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
+                </div>                
+                <div *ngIf="verAccion">
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
+                </div>
+                <div *ngIf="editarAccion">
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
+                </div>
+                <div *ngIf="eliminarAccion">
+                    <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>
+                </div>
                 </ul>
             </div>        
             </div>
@@ -43,6 +51,46 @@
         <div *ngIf="eliminar_conductor" class="container-fluid">
             <mat-toolbar>Eliminar <i class="material-icons"> delete_sweep</i></mat-toolbar>
             <conductor-eliminar></conductor-eliminar>     
+        </div>
+
+        <div>
+
+            <div class="card text-center" >
+            <div class="card-header">
+                <p>Autobuses el poblado laureles</p>
+            </div>
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Danger card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-8">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">
+                                With supporting text below as a natural lead-in to additional content.
+                                With supporting text below as a natural lead-in to additional content
+                                With supporting text below as a natural lead-in to additional content
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>   
+                
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+            </div>
+
+            
         </div>
     
     
