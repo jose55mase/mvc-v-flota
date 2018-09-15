@@ -28,7 +28,9 @@ export class UserService {
   return this.http.post<RestResponse>("http://localhost:8080/saveOrUpdate", JSON.stringify(user));
   }
   public getUser() : Observable<User[]>{
-    return this.http.get(this.getUrl).map((res:Response)=>res.json()).catch((error:any) => Observable.throw(error.json().error || 'Hay problemas' ));
+    return this.http.get(this.getUrl)
+    .map((res:Response)=>res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Hay problemas' ));
   }
 
 }

@@ -1,3 +1,9 @@
+ng-template{
+  padding: 100px 2064px 34px 100px;
+  padding-left: 80px;
+  padding-right: 30px;
+}
+
 .example-container {
   display: flex;
   flex-direction: column;
@@ -6,8 +12,8 @@
   overflow: auto;
 }
 
-ng-template{
-  padding: 100px 2064px 34px 100px;
-  padding-left: 80px;
-  padding-right: 30px;
+p {
+  font: small-caps 100%/200% serif;
+  text-align: justify;
+  text-justify: inter-word;
 }

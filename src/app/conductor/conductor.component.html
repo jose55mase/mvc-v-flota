@@ -32,7 +32,8 @@
         </div>
     
         <div class="col-lg-9">
-    
+        <br>
+        <br>
         <div *ngIf="crear_conductor" class="container-fluid">
             <mat-toolbar>Crea  <i class="large material-icons"> add_circle</i></mat-toolbar>
             <app-conductor-crear></app-conductor-crear>
@@ -53,44 +54,43 @@
             <conductor-eliminar></conductor-eliminar>     
         </div>
 
-        <div>
-
+        <div *ngIf="main">
             <div class="card text-center" >
             <div class="card-header">
-                <p>Autobuses el poblado laureles</p>
+               <h3><p>Autobuses el poblado laureles</p></h3>
             </div>
             <div class="card-body">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Danger card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <div class="card-header">Conductores A.P.L</div>
+                                <div class="card-body">                                    
+                                    <div class="col-12 user-img">   
+                                        <img [src]="vistaModulo" width="220px" height="200px">            
+                                    </div>  
                                 </div>
                             </div>
                         </div>
                         
                         <div class="col-lg-8">
-                            <h5 class="card-title">Special title treatment</h5>
+                            <h5 class="card-title">Conductor</h5>
                             <p class="card-text">
-                                With supporting text below as a natural lead-in to additional content.
-                                With supporting text below as a natural lead-in to additional content
-                                With supporting text below as a natural lead-in to additional content
+                                Los conductores registrdos en el A.P.L son quiene conducen nuestroa autobuses y desempeñan la labor mas importante
+                                durante el dia laborado, se compone de dos tipos de conductore, el conductor quien hace los viajes diarios con una jornada estandar y 
+                                el caiman quien realiza el relevo cuando este conductor no esta realizando tareas dentro de el sistema como las rutas, majo del los vehiculos o algun
+                                reporte de daño. esperamos Crees, edites, o borres con mucho responsabilidad.
+                                <br><br>
+                                Si tienes algun tipo de inquietu o has cometido alguna falla realiza contacto con el super usuario o el encargado
                             </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>   
-                
                         </div>
                     </div>
                 </div>    
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                Hoy es : {{fecha}}
             </div>
             </div>
-
-            
         </div>
     
     

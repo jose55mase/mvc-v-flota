@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { RolUsuarioService } from '../rolUsuario/service';
+import { Permisos } from '../modelo/permisos.module';
+import { Rol } from '../modelo/rol.module';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,14 +13,55 @@ export class UsuariosComponent implements OnInit {
   
   @Input('crearPermisoUsuario') public crearPermisoUsuario: boolean;
   appComponent : AppComponent; 
-  fullImagePath: any;
-  constructor() { this.fullImagePath = "../../assets/images/login.jpg"  }
+ 
+  fullImagePath : any;
+  vistaModulo : any;
+  constructor(private rolUsuarioService : RolUsuarioService) { this.fullImagePath = "../../assets/images/login.jpg",  this.vistaModulo ="../../assets/images/vistaModulo.jpg"}
+  crear_conductor : boolean = false;
+  editar_conductor : boolean = false;
+  ver_conductor : boolean = false;
+  eliminar_conductor : boolean = false;
+  main : boolean = true;
 
   crearPermiso : boolean = this.crearPermisoUsuario;
   edit = false;
   campo = false;
   
-  ngOnInit() { }
+  fecha = new Date().getDate()+"/"+(new Date().getMonth()+1)+"/"+new Date().getFullYear();
+
+  serguridadArray : Permisos[]; // PERMISOS PARA LOS USUARIO QUE ESTAMOS EN CAPA
+  rolArray : Rol[]; // ROLES PARA LOS USUARIO QUE ESTAMOS EN CAPA
+
+  ngOnInit(){
+    this.accionesUsuario();
+    this.rolXusuario();
+  }
+
+  // ACCION DE LOS BOTOENES A USAR 
+  crearAccion : boolean = false;
+  verAccion : boolean = false;
+  editarAccion : boolean = false;
+  eliminarAccion : boolean = false;
+
+  //FUNCCION PARA DETERMINAR BOTONES DE USUARIO
+  rol_correcto : boolean;
+  public rolXusuario(){
+    this.rolUsuarioService.findAllPermiso().subscribe(dato => { this.serguridadArray = dato 
+      for(var elementoSeguridad in this.serguridadArray){
+        if(localStorage.getItem("rol_id_usuario") === this.serguridadArray[elementoSeguridad].id_rol){         
+          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.crearAccion = true }
+          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.verAccion = true }
+          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.editarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.eliminarAccion = true }
+        }        
+      }
+      
+    })
+  }
+
+  public accionesUsuario(){
+    
+  }
 
   lista: any = [
     {id:0,nombre:'Jose luis',usuario:"jose",clave:123 ,apellido:'castañeda',correo:'jose@gmail.com',cedula:1234334, celular:39832, direccion:'carre 43 n 75'},
@@ -42,10 +86,7 @@ export class UsuariosComponent implements OnInit {
   };
   
   
-  crear_conductor: boolean = false;
-  editar_conductor: boolean = false;
-  ver_conductor: boolean = false;
-  eliminar_conductor: boolean = false;
+  
   editar_item: boolean = false;
 
  
@@ -85,40 +126,34 @@ eliminarUsuario(conductor){
 }
 
 
- crear(){
-   this.crear_conductor = true;
-   this.editar_conductor = false;
-   this.ver_conductor = false;
-   this.eliminar_conductor = false;
- }
- 
- editar(){
-   this.crear_conductor = false;
-   this.editar_conductor = true;
-   this.ver_conductor = false;
-   this.eliminar_conductor = false;
- }
- ver(){
-   this.crear_conductor = false;
-   this.editar_conductor = false;
-   this.ver_conductor = true;
-   this.eliminar_conductor = false;
- }
- eliminar(){
-   this.crear_conductor = false;
-   this.editar_conductor = false;
-   this.ver_conductor = false;
-   this.eliminar_conductor = true;
- }
+crear(){
+  this.crear_conductor = true;
+  this.editar_conductor = false;
+  this.ver_conductor = false;
+  this.eliminar_conductor = false;
+  this.main = false;
+}
 
- 
-
- editarUsuario(conductor){
-   this.conductor = conductor;
-   this.crear_conductor = true;
-   this.editar_conductor = false;
-   this.editar_item = true;
- }
-
+editar(){
+  this.crear_conductor = false;
+  this.editar_conductor = true;
+  this.ver_conductor = false;
+  this.eliminar_conductor = false;
+  this.main = false;
+}
+ver(){
+  this.crear_conductor = false;
+  this.editar_conductor = false;
+  this.ver_conductor = true;
+  this.eliminar_conductor = false;
+  this.main = false;
+}
+eliminar(){
+  this.crear_conductor = false;
+  this.editar_conductor = false;
+  this.ver_conductor = false;
+  this.eliminar_conductor = true;
+  this.main = false;
+}
 
 }

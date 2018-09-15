@@ -20,8 +20,8 @@ export class UserCrearComponent implements OnInit {
   nombre :string;
   validarCorreo : boolean = false;
   formulario : FormGroup;
-  public usuario : User;
-  input : string;
+  
+  
   content: any;
   hide : boolean = true;
   
@@ -30,7 +30,7 @@ export class UserCrearComponent implements OnInit {
     this.validar();
     this.getUsuarios();
     this.saveOrUpdate(this.content);
-    this.input = this.usuario.clave
+    
     
   }
 
