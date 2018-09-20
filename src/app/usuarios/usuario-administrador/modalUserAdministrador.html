@@ -1,0 +1,115 @@
+  <div class="form-group"><!--     Nombres     -->
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">                        
+              <i class="material-icons">local_offer</i>
+              <span class="input-group-text" id="basic-addon1">Nombre</span>
+          </div>
+          <input type="text" class="form-control"   placeholder="Nombre" [(ngModel)]="user.nombre">                        
+      </div>
+  </div>
+
+  <div class="form-group"><!--     Apellido     -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">                        
+            <i class="material-icons">local_offer</i>
+            <span class="input-group-text" id="basic-addon1">Apellido</span>
+        </div>
+        <input type="text" class="form-control"   placeholder="Apellido" [(ngModel)]="user.apellido">                        
+    </div>
+</div>
+<div class="form-group"><!--     Cedula Usuario     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Cedula CC</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="Cedula" [(ngModel)]="user.cedula">                        
+  </div>
+</div>
+<div class="form-group"><!--     Correo     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Correo electronico</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="Correo" [(ngModel)]="user.correo">                        
+  </div>
+</div>
+<div class="form-group"><!--     Telefonos usuario     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Telefonos usuario</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="Nombre" [(ngModel)]="user.telefono">                        
+  </div>
+</div>
+<div class="form-group"><!--     usuario     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Usuario de log</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="Nombre" [(ngModel)]="user.usuario">                        
+  </div>
+</div>
+<div class="form-group"><!--     clave     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Clave ***</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="*****************" [(ngModel)]="user.clave">                        
+  </div>
+</div>
+
+<div class="form-group"><!--     Nombres     -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Nombre</span>
+      </div>
+      <input type="text" class="form-control"   placeholder="Nombre" [(ngModel)]="user.nombre">                        
+  </div>
+</div>
+
+<div class="form-group"><!--   Cargo       -->
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">                        
+          <i class="material-icons">local_offer</i>
+          <span class="input-group-text" id="basic-addon1">Cargo</span>
+      </div>
+      <mat-form-field>            
+          <mat-select placeholder="Seleccione Cargo"  [(ngModel)]="user.cargo">
+              <mat-option value="invitado">Invitado</mat-option>
+              <mat-option value="junta">Junta</mat-option>
+              <mat-option value="gerente">Gerencia</mat-option>
+              <mat-option value="jefe Taller">Jefe Taller</mat-option>     
+              <mat-option value="administrador">Administrador</mat-option>                
+          </mat-select>
+      </mat-form-field>
+  </div>                
+</div>
+
+<mat-radio-group [(ngModel)]="user.estado">
+    <mat-radio-button [value]="false">Inactivar Usuario</mat-radio-button>
+    <mat-radio-button [value]="true">Activar Usuario</mat-radio-button>        
+</mat-radio-group>
+
+<button class="btn btn-primary btn-block" mat-dialog-close  (click)="editar(content)">Completar operación</button>
+<button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+         
+    <div class="alert alert-success">
+        <h5>operación  <strong>exitosa</strong> </h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>    
+    </div> 
+        
+    <div class="modal-body">
+        <p>A.P.L</p>
+        <button class="btn btn-primary" (click)="c('Save click')">Listo !</button>
+    </div>        
+</ng-template>

@@ -49,6 +49,6 @@ export class VehiculoCrearComponent implements OnInit {
 
   public crearVehiculo(): void{ 
     this.vehiculoServise.crearVehiculo(this.vehiculo).subscribe( 
-      dato => { alert ("Creado") } );
+      dato => {  } );
   }
 }

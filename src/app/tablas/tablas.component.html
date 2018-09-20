@@ -45,7 +45,7 @@
             <a (click)="verVehiculo()">Vehiculos  <i class="material-icons">airport_shuttle</i></a>
             <a (click)="verMantenimiento()">Mantenimiento  <i class="material-icons">commute</i></a>
             <a (click)="verDanno()">Siniestro  <i class="material-icons">rv_hookup</i></a>
-            <a href="#">Link 5</a>
+            <a (click)="verUsuario()">Usuarios  <i class="material-icons">people</i></a>
             <a href="#">Link 6</a>
             <a href="#">Link 7</a>
             <a href="#">Link 8</a>              
@@ -69,6 +69,9 @@
                 <administrador-Dannos></administrador-Dannos>
             </div>
 
+            <div *ngIf="usuario">
+                <user-administrador></user-administrador>
+            </div>
         </div>
     </div>
-</div>       
+</div>      

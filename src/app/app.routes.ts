@@ -11,22 +11,22 @@ import { InicioAppComponent } from './inicio-app/inicio-app.component';
 import { ConductorComponent } from './conductor/conductor.component';
 import { TablasComponent } from './tablas/tablas.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
-
+import { NoLoginGuard } from './logIng-app/noLogin.guard';
 
 
 
 const APP_ROUTES: Routes = [
    // { path: '', redirectTo: 'usuarios-router', pathMatch: 'full' },
   { path: '', redirectTo: 'entrar-router', pathMatch: 'full' },
-  { path : 'app-router', component : AppComponent,  },
+  { path : 'app-router', component : AppComponent, canActivate: [LoginGuard] },
   { path : 'dannos-router', component : DannosComponent,  },
   { path : 'mantenimiento-router', component : MantenimientoComponent,  },
-  { path : 'entrar-router', component : LogInAppComponent, },
+  { path : 'entrar-router', component : LogInAppComponent, canActivate:[NoLoginGuard] },
   { path : '', component : LogInAppComponent },
 
-  { path : 'inicio-router', component : InicioAppComponent, },
+  { path : 'inicio-router', component : InicioAppComponent,canActivate: [LoginGuard] },
   /*   USUARIOS   */
-  { path : 'usuario-router', component : InicioAppComponent,  },
+  { path : 'usuario-router', component : InicioAppComponent,canActivate: [LoginGuard]  },
   /*   CANDUCTOR   */
   { path : 'conductor-router', component : ConductorComponent,  },
   /*   TABLAS   */
@@ -40,7 +40,7 @@ const APP_ROUTES: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(APP_ROUTES)],
-    exports: [RouterModule]
+    exports: [RouterModule,]
   })
 
 export class AppRoutingModule { }

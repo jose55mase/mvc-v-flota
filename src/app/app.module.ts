@@ -51,7 +51,7 @@ import { AppRoutingModule } from './app.routes';
 
 /*  REPORTE DE DAÑOS   */   
 import { CreaDannosComponent } from './reporte_dannos/crea/creaDannos.component';
-import { ListaDannosComponent } from './reporte_dannos/lista/listaDannos.component';
+import { ListaDannosComponent, ModalDannosVer } from './reporte_dannos/lista/listaDannos.component';
 import { DannosComponent } from './reporte_dannos/dannos.component';
 import { ModalDannosEditar, EditarDannosComponent } from './reporte_dannos/editar/editarDannos.component';
 import { ModalDannosEliminar, EliminarDannosComponent } from './reporte_dannos/eliminar/eliminarDannos.component';
@@ -67,6 +67,7 @@ import { AdministradorMantenimientoComponent, ModalMantenimientoAdministrador } 
 /*  PARA INICIAR SESION   */
 import { LoginGuard } from './logIng-app/login.guard';
 import { LogInAppComponent } from './logIng-app/logIng-app.component';
+import { NoLoginGuard } from './logIng-app/noLogin.guard';
 /*   INICIAR APP   */
 import { InicioAppComponent } from './inicio-app/inicio-app.component';
 /*   USUARIOS   */
@@ -75,6 +76,7 @@ import { UserCrearComponent } from './usuarios/usuario.crear/user-crear.componen
 import { UserListComponent, ModalUserVista } from './usuarios/usuario-lista/user-list.component';
 import { UserEliminarComponent, ModalUserEliminar } from './usuarios/usuario-eliminar/user-eliminar.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UserAdministradorComponent, ModalAministradorEditar } from './usuarios/usuario-administrador/user-administrador.component';
  /*   CANDUCTOR   */
 import { ConductorCrearComponent } from './conductor/conductor.crear/conductor-crear.component';
 import { ConductorComponent } from './conductor/conductor.component';
@@ -97,8 +99,7 @@ import { LogsAppComponent } from './logs/logs.component';
 import { RolUsuarioComponent } from './rolUsuario/rolUsuario.component';
 /*   SEGURIDAD   */
 import { SeguridadComponent } from './rolUsuario/seguridad.component';
-
-
+import { SeguridadUsuarioRolComponent } from './rolUsuario/seguridad/seguridad.component'; // SEGURIDAD ENCAPSULADA EN COPONENTES.
 
 
 @NgModule({
@@ -125,7 +126,7 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     ModalDannosEliminar,
     AdministradorDannosComponent,
     ModalDannosAdministrador,
-
+    ModalDannosVer,
     /*  PARA INICIAR SESION   */
     LogInAppComponent,
     /*   INICIAR APP   */
@@ -139,6 +140,8 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     ModalUserEliminar,
     ModalUserEditar,
     ModalUserVista,
+    UserAdministradorComponent,
+    ModalAministradorEditar,
     /*   CANDUCTOR   */
     ConductorComponent,
     ConductorCrearComponent,
@@ -169,9 +172,10 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     /*   ROLES   */
     RolUsuarioComponent,
     /*   SEGURIDAD   */
-    SeguridadComponent
+    SeguridadComponent,
+    SeguridadUsuarioRolComponent,//  SEGURIDAD ENCAPSULADA EN UNA COMPONENTES..
     
-    
+  
     
 
   ],
@@ -181,6 +185,7 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     ModalUserEliminar,
     ModalUserEditar,
     ModalUserVista,
+    ModalAministradorEditar,
     /*   VEHICULOS   */
     ModalVehiculoVista,
     ModalVehiculoEditar,
@@ -203,7 +208,8 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     /*  REPORTE DE DAÑOS   */ 
     ModalDannosEditar,
     ModalDannosEliminar,
-    ModalDannosAdministrador
+    ModalDannosAdministrador,
+    ModalDannosVer,
     
     
   ],
@@ -255,8 +261,8 @@ import { SeguridadComponent } from './rolUsuario/seguridad.component';
     MatStepperModule,    
   ],
 
-
-  providers: [LoginGuard],
+  
+  providers: [LoginGuard, NoLoginGuard],
   bootstrap: [AppComponent]
 })
 

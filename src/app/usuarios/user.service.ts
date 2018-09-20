@@ -12,7 +12,7 @@ import { RestResponse } from '../modelo/restResponse.model';
 export class UserService {
   
   private apiUrl = 'http://localhost:8080/getUsersTrue';
-  
+  private apiUrlUsuario = 'http://localhost:8080/getUsers'
   constructor(private http: Http, private _http: HttpClient) {
   }
   //Lista Usuario
@@ -21,7 +21,13 @@ export class UserService {
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
   }
- 
+  
+  findAllUsuario(): Observable<User[]>  {
+    return this.http.get(this.apiUrlUsuario)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
+  }
+
   findById(id: number): Observable<User> {
     return null;
     

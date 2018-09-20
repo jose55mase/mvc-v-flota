@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class LoginGuard implements CanActivate {
+export class NoLoginGuard implements CanActivate {
 
   
   constructor( private router : Router ){  }
@@ -11,8 +11,8 @@ export class LoginGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     
-      if(localStorage.getItem('correoLogUser') === null){        
-        this.router.navigate(['entrar-router'])
+      if(localStorage.getItem('correoLogUser') != null){        
+        this.router.navigate(['inicio-router'])
         return false;      
       }else{        
         return true;        

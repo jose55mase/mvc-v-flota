@@ -19,6 +19,7 @@ export class TablasComponent {
   vehiculo : boolean = false;
   mantenimiento : boolean = false;
   dannos : boolean = false;
+  usuario : boolean = false;
 
   verConductor(){
     this.conductor = true;
@@ -26,6 +27,7 @@ export class TablasComponent {
     this.dannos =  false;
     this.vehiculo = false;
     this.mantenimiento = false;
+    this.usuario = false;
   }
   verVehiculo(){
     this.vehiculo = true;
@@ -33,6 +35,7 @@ export class TablasComponent {
     this.dannos =  false;
     this.conductor = false;
     this.mantenimiento = false;
+    this.usuario = false;
   }
   verMantenimiento(){
     this.mantenimiento = true;
@@ -40,6 +43,7 @@ export class TablasComponent {
     this.dannos =  false;
     this.conductor = false;
     this.vehiculo = false;
+    this.usuario = false;
   }
   verDanno(){
     this.dannos =  true;
@@ -47,7 +51,17 @@ export class TablasComponent {
     this.conductor = false;
     this.mantenimiento = false;
     this.vehiculo = false;
+    this.usuario = false;
   }
+  verUsuario(){
+    this.usuario = true;
+
+    this.dannos =  false;
+    this.conductor = false;
+    this.mantenimiento = false;
+    this.vehiculo = false;
+  }
+
 }
 
 @Component({  

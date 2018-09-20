@@ -4,7 +4,7 @@
     <form [formGroup] = "formulario" (ngSubmit)= "add(formulario.value)">
       <div class="form-group">
         <label for="titulo">Titulo Mantenimiento</label>
-        <input type="text" class="form-control" formControlName = "titulo" placeholder="Titulo Mantenimiento" [(ngModel)]="mantenimiento.titulo">      
+        <input type="text" class="form-control" formControlName = "titulo" [disabled]="true" placeholder="Titulo Mantenimiento" [(ngModel)]="mantenimiento.titulo">      
       </div>   
       
       <div class="form-group">
@@ -27,28 +27,29 @@
         <textarea class="form-control" id="informe" rows="4" formControlName="informe" [(ngModel)]="mantenimiento.informe"></textarea>
       </div>   
     
-    <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveMantenimiento()" >Crear un daño</button>
+    <button class="btn btn-primary btn-block" [disabled]= "!formulario.valid" (click)="saveMantenimiento()" >Crear</button>
     </form> 
   </div>
 </div>  
 
-
-
-
 <ng-template  #resive class="form-inline">    
-  <mat-card class="alert alert-success" ngbTooltip="Titulo para el informe de Mantenimiento">{{mantenimiento.titulo}}</mat-card>
-  <mat-card class="alert alert-success" ngbTooltip="Mantenimiento aplicado al vehiculo">{{mantenimiento.estado_vehiculo}}</mat-card>
-  <mat-card class="alert alert-success" ngbTooltip="Informacion del daño">{{mantenimiento.reporte_dannos}}</mat-card>
-  <mat-card class="alert alert-success" ngbTooltip="Informe del vehiculo en tanto al vehiculo">{{mantenimiento.informe}}</mat-card>
+  <div class="card" style="width: 18rem;">
+      <ngb-alert type="success">
+        <strong>Listo !</strong> se a creado con exito  <i class="material-icons">local_shipping</i>
+      </ngb-alert>
+      
+     
+    <div class="card-body">
+      <h5 class="card-title">{{mantenimiento.titulo}}</h5>
+      <p class="card-text">El mantenimiento para los daños  se <strong>crearon</strong> con <strong>exito</strong></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{mantenimiento.estado_vehiculo}}</li>
+      <li class="list-group-item">{{mantenimiento.reporte_dannos}}</li>
+      <li class="list-group-item">{{mantenimiento.informe}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Listo</a>      
+    </div>
+  </div>
 </ng-template> 
-
-<input
-    (keyup)="searchTerm$.next($event.target.value)">
-
-<ul *ngIf="results">
-  <li *ngFor="let result of results | slice:0:9">
-    <a href="{{ result.latest }}" target="_blank">
-      {{ result.vehiculo }}
-    </a>
-  </li>
-</ul>
