@@ -6,6 +6,8 @@ import * as $ from 'jquery';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { Alert } from 'selenium-webdriver';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RolUsuarioService } from '../../rolUsuario/service';
+import { Rol } from '../../modelo/rol.module';
 
 @Component({
   selector: 'app-user-crear',
@@ -17,6 +19,7 @@ export class UserCrearComponent implements OnInit {
   private user : User
   
   users : User[];
+  roles : Rol[]
   nombre :string;
   validarCorreo : boolean = false;
   formulario : FormGroup;
@@ -30,12 +33,13 @@ export class UserCrearComponent implements OnInit {
     this.validar();
     this.getUsuarios();
     this.saveOrUpdate(this.content);
+    this.tomarTodoRol();
     
     
   }
 
-  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private modalService: NgbModal) { 
-    this.user = new User();
+  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private modalService: NgbModal,private rolUsuarioService : RolUsuarioService ) { 
+    this.user = new User();  
  
   }
 
@@ -88,6 +92,14 @@ export class UserCrearComponent implements OnInit {
       dato => {  }
     )          
   }
+
+  tomarTodoRol(){
+    this.rolUsuarioService.findAllRol().subscribe(
+      dato => { this.roles = dato }
+    )
+  }
+
+
 }
 
 

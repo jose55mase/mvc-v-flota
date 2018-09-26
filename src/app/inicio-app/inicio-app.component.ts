@@ -28,6 +28,7 @@ export class InicioAppComponent implements OnInit {
   vandera : boolean = false; //  PARA ARRANCAR EL ARRAY
   validar : string = "";
   validaciones 
+  logoFondo : any;
 
   inicioImagen: any;
 
@@ -36,6 +37,7 @@ export class InicioAppComponent implements OnInit {
   }
   constructor( private router :  Router, private inicioService : InicioService, private rolUsuarioService : RolUsuarioService ) { 
     this.inicioImagen = "../../assets/images/vehiculos.jpg";
+    this.logoFondo = "../../assets/images/logoFondo.png";
 
   }
 

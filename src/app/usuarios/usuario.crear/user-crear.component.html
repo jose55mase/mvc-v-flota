@@ -114,25 +114,18 @@
                 </div>            
             </div>
 
-
-            <div class="form-group"><!--   Cargo       -->
+            <div class="form-group"><!--   Cargo       -->               
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">                        
                         <i class="material-icons">local_offer</i>
                         <span class="input-group-text" id="basic-addon1">Cargo</span>
                     </div>
-                    <mat-form-field>            
-                        <mat-select placeholder="Seleccione Cargo"  formControlName = "cargo" [(ngModel)]="user.cargo">
-                            <mat-option value="invitado">Invitado</mat-option>
-                            <mat-option value="junta">Junta</mat-option>
-                            <mat-option value="gerencia">Gerencia</mat-option>
-                            <mat-option value="jefe_taller">Jefe Taller</mat-option>  
-                        </mat-select>
-                    </mat-form-field>
-                </div>                
+                    <select class="form-control" id="estado" placeholder="Seleccione Cargo" formControlName = "cargo" [(ngModel)]="user.cargo" >
+                        <option *ngFor="let item of roles" [value]="item.rol">{{item.rol}}</option>                  
+                    </select>
+                </div>
             </div>
 
-            
             <div class="form-group"><!--   estado       -->
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">                        

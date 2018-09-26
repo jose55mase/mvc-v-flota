@@ -1,3 +1,5 @@
+<button mat-stroked-button color="primary" (click)="crearRol()" > <i class="large material-icons"> add_circle</i> Crear un rol nuevo</button>
+
 <div class="example-header">
         <div class="form-group">
           <h3>Buscar en la lista</h3> <i class="material-icons">search</i>   
@@ -11,13 +13,18 @@
         <mat-header-cell *matHeaderCellDef> <h5>Roles APL</h5> </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.rol}} </mat-cell>
       </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> <h5>Id Rol</h5> </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
     
     
       <ng-container matColumnDef="accion">
           <mat-header-cell *matHeaderCellDef> <h5>Accion</h5> </mat-header-cell>
           <mat-cell *matCellDef="let element">
             
-            <button mat-icon-button class="btn btn-info" (click)="verVehiculo(element)" >
+            <button mat-icon-button class="btn btn-info" (click)="verEditar(element)" >
               <i class="large material-icons"></i>
             </button>
             

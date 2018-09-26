@@ -6,7 +6,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
-
 @Component({
   selector: 'logIng-app',
   templateUrl: './logIng-app.component.html',
@@ -38,10 +37,13 @@ export class LogInAppComponent {
   usuarioInactivo : boolean = false;
   usuarioNocreado : boolean = false; 
 
+
   constructor(  private router : Router, private userService : UserService,private modalService: NgbModal ){ 
     this.logoImagePath = "../../assets/images/logo.jpg";
     this.loginImagePath = "../../assets/images/sesiones.png";
   }
+
+
 
 
   public  alertCerrar(){

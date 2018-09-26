@@ -21,6 +21,7 @@ export class RolUsuarioService {
   
   private rolUrl = 'http://localhost:8080/getRoles';
   private permisoUrl = 'http://localhost:8080/getPermisos';
+  private crearRol = 'http://localhost:8080/guardarRol'
   
   constructor(private http: Http, public _http: HttpClient) {
   }
@@ -30,12 +31,23 @@ export class RolUsuarioService {
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
   }
+  guardarRol( rol : Rol): Observable<RestResponse>{
+    return this._http.post<RestResponse>("http://localhost:8080/guardarRol", JSON.stringify(rol));
+  }
+  // Eliminar mantenimiento
+  public delete(rol : Rol){
+    this.http.post("http://localhost:8080/deleteMantenimiento", JSON.stringify(rol)).subscribe();
+  }
 
-  // lista Permisos => getPermisos
+  
+  // lista Permisos => guardarPermisos
   findAllPermiso(): Observable<Permisos[]>  {
     return this.http.get(this.permisoUrl)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Tenemos un error en server'));
+  }
+  guardarPermiso( permisos : Permisos): Observable<RestResponse>{
+    return this._http.post<RestResponse>("http://localhost:8080/guardarPermisos", JSON.stringify(permisos));
   }
  /*
   guardarCanductor( conductor : Conductor): Observable<RestResponse>{

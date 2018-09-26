@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatDialog} from '@angular/material';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
 import { Observable } from 'rxjs';
@@ -8,6 +8,8 @@ import {map, startWith} from 'rxjs/operators';
 import { RolUsuarioService } from './service';
 import { Rol } from '../modelo/rol.module';
 import { Permisos } from '../modelo/permisos.module';
+import { CreaPermisoComponent } from './crear-permiso/crear-permiso.component';
+import { EditarPermisoComponent } from './editar-permiso/editar-permiso.component';
 
 
 @Component({
@@ -17,12 +19,12 @@ import { Permisos } from '../modelo/permisos.module';
   providers: [RolUsuarioService]
 })
 export class SeguridadComponent implements OnInit{
-  constructor( private rolUsuarioService : RolUsuarioService){  }
+  constructor( private rolUsuarioService : RolUsuarioService, public ver : MatDialog){  }
   private serguridadArray : Permisos[];
   public dataSource : any;
 
 
-  displayedColumns = ['rol','accion' ];
+  displayedColumns = ['id_rol','modulo','accion' ];
   getAllRoles(){
     this.rolUsuarioService.findAllPermiso().subscribe(dato => {this.serguridadArray = dato})
   }
@@ -43,6 +45,14 @@ export class SeguridadComponent implements OnInit{
     filterValue = filterValue.trim(); // Remueve al preciona 
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defecto de daracteres
     this.dataSource.filter = filterValue;
+  }
+  public creaPermisos(){  //CREAR UN NUEVO ROL LANZA MODAL
+    this.ver.open(CreaPermisoComponent,{})
+  }
+
+  public verEditar(permiso){
+    sessionStorage.setItem('permiso', JSON.stringify(permiso));
+    this.ver.open(EditarPermisoComponent, {})
   }
 
 }

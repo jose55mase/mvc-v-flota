@@ -13,13 +13,25 @@ import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@a
   styleUrls: ['./tablas.component.css'],
   providers: [ TablaService ]
 })
-export class TablasComponent {
+export class TablasComponent implements OnInit{
 
   conductor : boolean = false;
   vehiculo : boolean = false;
   mantenimiento : boolean = false;
   dannos : boolean = false;
   usuario : boolean = false;
+  contador : number = 0;
+
+  ngOnInit(){ this.contar();
+
+  }
+
+  public contar(){
+    for(var i ; i >= 100; i++){
+      this.contador = this.contador + i      
+    }
+    this.contador
+  }
 
   verConductor(){
     this.conductor = true;

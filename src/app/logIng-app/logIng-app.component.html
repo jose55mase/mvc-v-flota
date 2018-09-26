@@ -47,8 +47,8 @@
 
 
  <div class="titulo">    
-    <ngb-alert *ngIf="usuarioInactivo" type="danger" (close)="alertCerrar()"> <strong>Usuario inactivo</strong> </ngb-alert>
-    <ngb-alert *ngIf="usuarioNocreado" type="danger" (close)="alertCerrar()"> <strong>Usuario no existe</strong> </ngb-alert> 
+    <ngb-alert *ngIf="usuarioInactivo" type="danger" mat-dialog-close (close)="alertCerrar()"> <strong>Usuario inactivo</strong> </ngb-alert>
+    <ngb-alert *ngIf="usuarioNocreado" type="danger" mat-dialog-close (close)="alertCerrar()"> <strong>Usuario no existe</strong> </ngb-alert> 
 </div>
 <div class="modal-dialog text-center">
     <div class="col-lg-15 main-section">

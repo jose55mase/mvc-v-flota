@@ -1,0 +1,40 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Rol A.P.L</h5>
+    <h6 class="card-subtitle mb-3 text-muted">Crear un nuevo <strong>Rol</strong></h6>
+    <p class="card-text">
+      Crea un rol al que se va a integrar a la aplicacion para que se pueda hacer uso.
+      Ten en cuenta que este rol hace parte de la aplicacion y se puede dar u otorgar 
+      a un usuario nuevo o antiguo
+    </p>
+    
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+      <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Rol</span>
+  </div>
+  <input type="text" class="form-control"  placeholder="Nombres de Rol" [(ngModel)]="rol.rol">
+</div>
+
+
+<button  class="btn btn-primary  btn-block"  mat-dialog-close (click)="creaRol(content)">Completar operación</button>
+<button  class="btn btn-primary  btn-block" mat-dialog-close>Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+       
+  <div class="alert alert-success">
+      <h5>operación  <strong>exitosa</strong> </h5>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>    
+  </div> 
+      
+  <div class="modal-body">
+      <p>A.P.L</p>
+      <button class="btn btn-primary" href="#" (click)="c('Save click')">Listo !</button>
+  </div>        
+</ng-template>
+    

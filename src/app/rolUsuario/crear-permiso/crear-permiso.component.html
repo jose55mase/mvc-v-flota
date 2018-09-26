@@ -1,0 +1,73 @@
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Rol A.P.L</h5>
+    <h6 class="card-subtitle mb-3 text-muted">Crear los permiso para el rol<strong>Rol</strong></h6>
+    <p class="card-text">
+      Crea los permisos que mas trade se le añadiran al usuario.      
+    </p>    
+  </div>
+</div>
+     
+
+<select class="form-control" id="estado" [(ngModel)]="permiso.id_rol" >
+  <option *ngFor="let item of roles" [value]="item.id">Id : {{item.id}} -- Rol : {{item.rol}}</option>                  
+</select>
+
+<label for="estado">Modulo</label>
+<select class="form-control"  [(ngModel)]="permiso.modulo">
+  <option value="usuarios">usuarios</option>
+  <option value="conductores">conductores</option>
+  <option value="mantenimientos">mantenimientos</option>
+  <option value="siniestros">siniestros</option>
+  <option value="Vehiculos">Vehiculos</option>
+  <option value="rutas">rutas</option>
+  <option value="logs">logs</option>
+  <option value="tablas">tablas</option>
+  <option value="roles">roles</option>           
+</select>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+
+    <strong>Crear</strong><br>
+    <mat-radio-group [(ngModel)]="permiso.crear">
+      <mat-radio-button [value]="false">Inactivo</mat-radio-button><br>
+      <mat-radio-button [value]="true">Activo</mat-radio-button><hr>
+    </mat-radio-group>
+    <strong>Ver </strong><br>
+    <mat-radio-group [(ngModel)]="permiso.ver">
+      <mat-radio-button [value]="false">Inactivo</mat-radio-button><br>
+      <mat-radio-button [value]="true">Activo</mat-radio-button><hr>
+    </mat-radio-group>
+    <strong>Editar </strong><br>
+    <mat-radio-group [(ngModel)]="permiso.editar">
+      <mat-radio-button [value]="false">Inactivo</mat-radio-button><br>
+      <mat-radio-button [value]="true">Activo</mat-radio-button><hr> 
+    </mat-radio-group>
+    <strong>Eliminar </strong><br>
+    <mat-radio-group [(ngModel)]="permiso.eliminar">
+      <mat-radio-button [value]="false">Inactivo</mat-radio-button><br>
+      <mat-radio-button [value]="true">Activo</mat-radio-button><br>
+    </mat-radio-group>
+    
+  </div>
+</div>
+
+<button  class="btn btn-primary  btn-block" mat-dialog-close (click)="creaPermiso(content)">Completar operación</button>
+<button  class="btn btn-primary  btn-block" mat-dialog-close (click)="salirModal()">Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+       
+  <div class="alert alert-success">
+      <h5>operación  <strong>exitosa</strong> </h5>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>    
+  </div> 
+      
+  <div class="modal-body">
+      <p>A.P.L</p>
+      <button class="btn btn-primary" href="#" (click)="c('Save click')">Listo !</button>
+  </div>        
+</ng-template>

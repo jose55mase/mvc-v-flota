@@ -1,0 +1,40 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Rol A.P.L</h5>
+    <h6 class="card-subtitle mb-3 text-muted">Editar <strong>Rol</strong></h6>
+    <p class="card-text">
+      El editar un rol es importante saber que este se edita en todo el sistema,
+      tanto para los usuario que operan con ese rol como tambien al asignar este cambio.
+    </p>
+    
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+      <i class="material-icons">local_offer</i>
+      <span class="input-group-text" id="basic-addon1">Rol</span>
+  </div>
+  <input type="text" class="form-control"  placeholder="Nombres de Rol" [(ngModel)]="rol.rol">
+</div>
+
+
+<button  class="btn btn-primary  btn-block" mat-dialog-close (click)="editar(content)">Completar operación editado</button>
+<button  class="btn btn-warm  btn-block" mat-dialog-close (click)="eliminar()">Eliminar</button>
+<button  class="btn btn-primary  btn-block" mat-dialog-close (click)="salirModal()">Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+       
+  <div class="alert alert-success">
+      <h5>operación  <strong>exitosa</strong> </h5>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>    
+  </div> 
+      
+  <div class="modal-body">
+      <p>A.P.L</p>
+      <button class="btn btn-primary" href="#" (click)="c('Save click')">Listo !</button>
+  </div>        
+</ng-template>
+    

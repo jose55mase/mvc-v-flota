@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatDialog} from '@angular/material';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
 import { Observable } from 'rxjs';
@@ -7,6 +7,8 @@ import { Subject } from 'rxjs/Subject';
 import {map, startWith} from 'rxjs/operators';
 import { RolUsuarioService } from './service';
 import { Rol } from '../modelo/rol.module';
+import { CreaRolComponent } from './crear-rol/crear-rol.component';
+import { EditarRolComponent } from './editar-ro/editar-rol.component';
 
 
 @Component({
@@ -16,12 +18,12 @@ import { Rol } from '../modelo/rol.module';
   providers: [RolUsuarioService]
 })
 export class RolUsuarioComponent implements OnInit{
-  constructor( private rolUsuarioService : RolUsuarioService){  }
+  constructor( private rolUsuarioService : RolUsuarioService,  public ver : MatDialog){  }
   private rolesArray : Rol[];
   public dataSource : any;
 
 
-  displayedColumns = ['rol','accion' ];
+  displayedColumns = ['rol','id','accion' ];
   getAllRoles(){
     this.rolUsuarioService.findAllRol().subscribe(dato => {this.rolesArray = dato})
   }
@@ -43,5 +45,15 @@ export class RolUsuarioComponent implements OnInit{
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defecto de daracteres
     this.dataSource.filter = filterValue;
   }
+
+  public crearRol(rol){  //CREAR UN NUEVO ROL LANZA MODAL
+    this.ver.open(CreaRolComponent,{})
+  }
+
+  public verEditar(rol){
+    sessionStorage.setItem('rol', JSON.stringify(rol));
+    this.ver.open(EditarRolComponent, {})
+  }
+
 
 }

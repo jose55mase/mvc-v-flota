@@ -100,6 +100,10 @@ import { RolUsuarioComponent } from './rolUsuario/rolUsuario.component';
 /*   SEGURIDAD   */
 import { SeguridadComponent } from './rolUsuario/seguridad.component';
 import { SeguridadUsuarioRolComponent } from './rolUsuario/seguridad/seguridad.component'; // SEGURIDAD ENCAPSULADA EN COPONENTES.
+import { CreaRolComponent } from './rolUsuario/crear-rol/crear-rol.component'; // CREAR UN ROL
+import { CreaPermisoComponent } from './rolUsuario/crear-permiso/crear-permiso.component'; // CREAR PERMISOS
+import { EditarRolComponent } from './rolUsuario/editar-ro/editar-rol.component'; // EDITAR ROL
+import { EditarPermisoComponent } from './rolUsuario/editar-permiso/editar-permiso.component'; // EDITAR PERMISO
 
 
 @NgModule({
@@ -174,6 +178,10 @@ import { SeguridadUsuarioRolComponent } from './rolUsuario/seguridad/seguridad.c
     /*   SEGURIDAD   */
     SeguridadComponent,
     SeguridadUsuarioRolComponent,//  SEGURIDAD ENCAPSULADA EN UNA COMPONENTES..
+    CreaRolComponent, // CREAR UN ROL
+    CreaPermisoComponent, // CREAR PERMISOS
+    EditarRolComponent, // EDITAR ROL
+    EditarPermisoComponent, //EDITAR PERMISO
     
   
     
@@ -210,6 +218,11 @@ import { SeguridadUsuarioRolComponent } from './rolUsuario/seguridad/seguridad.c
     ModalDannosEliminar,
     ModalDannosAdministrador,
     ModalDannosVer,
+    /*SEGURIDAD*/
+    CreaRolComponent,
+    CreaPermisoComponent,
+    EditarRolComponent, // EDITAR ROL
+    EditarPermisoComponent, // EDITAR PERMISO
     
     
   ],
