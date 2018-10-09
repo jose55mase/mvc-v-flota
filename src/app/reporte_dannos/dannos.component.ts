@@ -50,10 +50,10 @@ export class DannosComponent implements OnInit {
     this.rolUsuarioService.findAllPermiso().subscribe(dato => { this.serguridadArray = dato 
       for(var elementoSeguridad in this.serguridadArray){
         if(localStorage.getItem("rol_id_usuario") === this.serguridadArray[elementoSeguridad].id_rol){         
-          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.crearAccion = true }
-          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.verAccion = true }
-          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.editarAccion = true }
-          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.eliminarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "siniestros"){ this.crearAccion = true }
+          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "siniestros"){ this.verAccion = true }
+          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "siniestros"){ this.editarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "siniestros"){ this.eliminarAccion = true }
         }        
       }
       

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a><br><br>
+    <a class="active"><img [src]="sinFondo" width="120px" height="100px"></a><br><br>
 
 
     <div class="modal-dialog text-center">
@@ -9,35 +9,33 @@
     </div>
        
       <form class="form-inline">
-        <div *ngIf="usuarioLogMenu">
-          <button mat-button [matMenuTriggerFor]="menu">  {{lognombre}} {{logApellido}}</button>
-          <mat-menu #menu="matMenu" >
-            <button mat-menu-item>{{lognombre}} {{logApellido}}</button>
-            <button mat-menu-item>Usuario : {{logUsuario}}</button>
-            <button mat-menu-item> Tipo de usuario :  {{logCargo}}</button>
-            <a mat-button (click)="cerrarSesion()">  Cerrar sesion</a>
-          </mat-menu>
-        </div>
-         
+              
           <div class="menu-usuarios">
               <button mat-button [matMenuTriggerFor]="menu" class="loginUsuario">Usuario <i class="material-icons">account_circle</i></button>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">A.P.L</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">{{lognombre}} {{logApellido}}</a>
+                </li>
+              </ul>
               <mat-menu #menu="matMenu">
                 
                   <mat-card class="example-card">
                       <mat-card-header>             
-                          <mat-card-title>{{lognombre}} {{logApellido}}</mat-card-title>
+                          <mat-card-title></mat-card-title>
                           <div mat-card-avatar class="example-header-image"></div>                          
                           <mat-card-title><h4>{{logCargo}}</h4></mat-card-title>
-                          <mat-card-subtitle>{{logUsuario}}</mat-card-subtitle>
+                          <mat-card-subtitle></mat-card-subtitle>
                                          
                       </mat-card-header>
                       
                       <img mat-card-image src="">
                       <mat-card-content>
                           <p>
-                          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                          bred for hunting.
+                          Cierra la sesion para proteger tu informacion, ayudanos aproteger tus datos o acciones dentro de la aplicacion en orden. de esta manera nos cuidamos en cualquier tipo de mal uso de la misma
                           </p>
                       </mat-card-content>
                       <mat-card-actions>                          
@@ -95,13 +93,13 @@
                     los recursos para nuestros pasajeros que nos prestan su tiempo para 
                     que nosotros podamos trasportarlos
                     <br><br><br>
-                    Somos una empresa que trabajamos para ser mejores en el manejo de 
+                    Nos dedicamos a trabajamos para ser mejores en el manejo de 
                     los recursos para nuestros pasajeros que nos prestan su tiempo para 
                     que nosotros podamos trasportarlos. <br>
                     <br>
                 </p>
                 <p class="card-text"><small class="text-muted">© Autobuses el Poblado 2018 <br>
-                    Todos los derechos reservados @ CTU Medellín 2016 - Desarollado por AlianzaNet Digital S.A.S
+                    Todos los derechos reservados @ CTU Medellín 2018 - Desarollado por DACI soluciones S.A
                 </small></p>
                 </div>
             </div>

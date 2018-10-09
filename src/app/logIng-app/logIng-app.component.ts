@@ -113,9 +113,10 @@ export class LogInAppComponent {
               this.alertUsuario = false;
               this.alertClaveIncorrecto = false;
               this.alertUsuarioIncorrecto = false;
-              this.usuarioInactivo = false;
+              this.usuarioInactivo = false;              
               localStorage.setItem('correoLogUser',this.correolog);
               localStorage.setItem('rolUsuario', this.arrayUsuario[elemento].cargo)
+              localStorage.setItem('usuario', this.arrayUsuario[elemento].usuario)
               this.correolog = null;
               this.clave = null ;              
               this.router.navigate( ['/inicio-router'] );              

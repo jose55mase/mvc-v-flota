@@ -4,6 +4,8 @@ import { Dannos } from '../../modelo/dannos.modelo';
 import { MantenimientoService } from '../serviceMantenimiento';
 import {MatPaginator, MatTableDataSource, MatDialog, MAT_DIALOG_DATA} from '@angular/material'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'editar-mantenimiento',
@@ -58,16 +60,20 @@ export class EditarMantenimientoComponent implements OnInit {
 
 @Component({  
   templateUrl: './modalMantenimientoEditar.html',  
-  providers: [MantenimientoService]
+  providers: [MantenimientoService, LogsService]
 })
 export class ModalMantenimientoEditar implements OnInit{
   mantenimiento: Mantenimiento;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private mantenimientoService: MantenimientoService, public ver : MatDialog, private modalService: NgbModal) {
+  private logs : Logs;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private mantenimientoService: MantenimientoService, public ver : MatDialog, private modalService: NgbModal, private logsService : LogsService) {
     if (sessionStorage.getItem("mantenimiento")) {
       this.mantenimiento = JSON.parse(sessionStorage.getItem("mantenimiento"));
     } else {
       this.mantenimiento = new Mantenimiento();
     }
+    this.logs = new Logs();     
+    this.logs.modulo = "Mantenimiento",
+    this.logs.accion = "Editar"
   }
   ngOnInit(){  };
 
@@ -76,5 +82,7 @@ export class ModalMantenimientoEditar implements OnInit{
       dato => {  }      
     );
     this.modalService.open(content, { size: 'sm' });
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )
   }
+  
 }

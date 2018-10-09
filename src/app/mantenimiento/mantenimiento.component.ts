@@ -12,7 +12,7 @@ export class MantenimientoComponent implements OnInit {
 
   fullImagePath : any;
   vistaModulo : any;
-  constructor( private rolUsuarioService : RolUsuarioService ) { this.fullImagePath = "../../assets/images/autobuselog.jpeg", this.vistaModulo ="../../assets/images/vistaModulo.jpg" }
+  constructor( private rolUsuarioService : RolUsuarioService ) { this.fullImagePath = "../../assets/images/autobuselog.jpeg", this.vistaModulo ="../../assets/images/auto2.jpg" }
   crear_conductor : boolean = false;
   editar_conductor : boolean = false;
   ver_conductor : boolean = false;

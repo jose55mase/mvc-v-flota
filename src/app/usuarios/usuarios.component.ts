@@ -16,7 +16,7 @@ export class UsuariosComponent implements OnInit {
  
   fullImagePath : any;
   vistaModulo : any;
-  constructor(private rolUsuarioService : RolUsuarioService) { this.fullImagePath = "../../assets/images/login.jpg",  this.vistaModulo ="../../assets/images/vistaModulo.jpg"}
+  constructor(private rolUsuarioService : RolUsuarioService) { this.fullImagePath = "../../assets/images/login.jpg",  this.vistaModulo ="../../assets/images/auto3.jpg"}
   crear_conductor : boolean = false;
   editar_conductor : boolean = false;
   ver_conductor : boolean = false;
@@ -49,10 +49,10 @@ export class UsuariosComponent implements OnInit {
     this.rolUsuarioService.findAllPermiso().subscribe(dato => { this.serguridadArray = dato 
       for(var elementoSeguridad in this.serguridadArray){
         if(localStorage.getItem("rol_id_usuario") === this.serguridadArray[elementoSeguridad].id_rol){         
-          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.crearAccion = true }
-          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.verAccion = true }
-          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.editarAccion = true }
-          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.eliminarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "usuarios"){ this.crearAccion = true }
+          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "usuarios"){ this.verAccion = true }
+          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "usuarios"){ this.editarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "usuarios"){ this.eliminarAccion = true }
         }        
       }
       

@@ -29,19 +29,20 @@ export class InicioAppComponent implements OnInit {
   validar : string = "";
   validaciones 
   logoFondo : any;
+  sinFondo : any;
 
   inicioImagen: any;
 
   ngOnInit(){ 
     this.getAllpermisos();
+    this.listaUsuarios();
   }
   constructor( private router :  Router, private inicioService : InicioService, private rolUsuarioService : RolUsuarioService ) { 
     this.inicioImagen = "../../assets/images/vehiculos.jpg";
     this.logoFondo = "../../assets/images/logoFondo.png";
+    this.sinFondo = "../../assets/images/logosinfodo.png";
 
   }
-
-
 
   mantenimientos : boolean = false;
   siniestros : boolean = false;
@@ -62,7 +63,9 @@ export class InicioAppComponent implements OnInit {
             this.logCargo = this.arrayUsuairio[elemento].cargo;
             this.lognombre = this.arrayUsuairio[elemento].nombre;
             this.logApellido = this.arrayUsuairio[elemento].apellido;
-            this.logUsuario = this.arrayUsuairio[elemento].usuario;            
+            this.logUsuario = this.arrayUsuairio[elemento].usuario;  
+            
+                      
           }
         }
       }
@@ -105,8 +108,7 @@ export class InicioAppComponent implements OnInit {
                 if(this.serguridadArray[elementoSeguridad].modulo == "roles"){ this.roles = true }
               }
             }
-          })
-          
+          })          
         }
       }
     })

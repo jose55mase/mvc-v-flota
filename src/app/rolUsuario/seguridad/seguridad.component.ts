@@ -19,10 +19,13 @@ export class SeguridadUsuarioRolComponent implements OnInit{
   rol : boolean = false;
   inicio : boolean = true;
   permiso : boolean = false;
+  auto3 : any;
+  auto2 : any;
+  auto4 : any;
 
   // METODOS USADOS DE CONSTRUCCION
-  ngOnInit(){}
-  constructor(){}
+  ngOnInit(){  }
+  constructor(){ this.auto3="./../../../assets/images/auto3.jpg", this.auto2="./../../../assets/images/auto2.jpg", this.auto4="./../../../assets/images/auto4.jpg" }
 
   // METOS DE ACCION
   verInicio(){

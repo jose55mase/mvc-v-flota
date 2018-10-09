@@ -10,7 +10,7 @@
         <a class="nav-link"><button mat-button color="warn" (click)="verRol()">Rol para los usuarios</button></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"><button mat-button color="warn" (click)="verPermiso()" >Permisos para los usuarios</button></a>
+        <a class="nav-link"><button mat-button color="warn" (click)="verPermiso()" >Permisos para el Rol</button></a>
       </li>
     </ul>
   </div>
@@ -19,33 +19,41 @@
    
   </div>
 </div>
-<div *ngIf="inicio">
+<div *ngIf="inicio" class="container"> 
   <div class="card-group">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="card">      
+      <img class="card-img-top" [src]="auto3" width="150px" height="300px" alt="Card image cap">
+      <div class="card-body">        
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" [src]="auto2" width="150px" height="300px" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <img class="card-img-top" [src]="auto4" width="150px" height="300px" alt="Card image cap">
+      <div class="card-body">        
       </div>
     </div>
   </div>
+
+  <div class="card w-85">
+    <div class="card-body">
+      <h3 class="card-title">Autobuses el poblado laureles</h3>
+      <p class="card-text">
+        El trabajo interinstitucional, se basa en los siguientes aspectos básicos: <br> <br>
+
+        <li> Claridad, transparencia y respeto mutuo.</li> <br>
+        <li>Comunicación permanente dialogo y concertación.</li> <br>
+        <li>Decisiones con justicia y equidad.</li> <br>
+        <li>Respeto al marco jurídico que regula la prestación del servicio.</li>
+      </p>
+     
+    </div>
+  </div>
+
+
 </div>
 
 <div *ngIf="rol">

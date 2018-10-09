@@ -6,6 +6,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Dannos } from '../../modelo/dannos.modelo';
 import { DannosService } from '../../reporte_dannos/dannosService';
 import { Mantenimiento } from '../../modelo/mantenimiento.modelo';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 
 
@@ -14,16 +16,20 @@ import { Mantenimiento } from '../../modelo/mantenimiento.modelo';
   selector: 'creaDannos',
   templateUrl: './creaDannos.component.html',
   styleUrls: ['./creaDannos.component.css'],
-  providers: [CreaDannosComponent]
+  providers: [CreaDannosComponent, LogsService]
 })
 export class CreaDannosComponent implements OnInit {
   private danno : Dannos;
   formulario : FormGroup;
   informe :string; 
   fechas = new Date();
+  private logs : Logs;
 
-  constructor(private dannosService: DannosService, private fb:FormBuilder) {
-    this.danno = new Dannos();      
+  constructor(private dannosService: DannosService, private fb:FormBuilder, private logsService : LogsService) {
+    this.danno = new Dannos();
+    this.logs = new Logs();     
+    this.logs.modulo = "Siniestro",
+    this.logs.accion = "Crear"     
   }
   staticAlertClosed = false;
 
@@ -44,7 +50,8 @@ export class CreaDannosComponent implements OnInit {
   }
   //Gurdar daños
   public saveDannos(): void{
-    this.dannosService.guardarDanno(this.danno).subscribe( )    
+    this.dannosService.guardarDanno(this.danno).subscribe( )
+    this.logsService.crearlog(this.logs).subscribe( dato => { } ) 
   }
 
   vehiculo: any=[

@@ -13,7 +13,7 @@ import { Rol } from '../modelo/rol.module';
 export class VehiculoComponent {
   fullImagePath : any;
   vistaModulo : any;
-  constructor(private rolUsuarioService : RolUsuarioService){ this.fullImagePath ="../../assets/images/vehiculos.jpg", this.vistaModulo ="../../assets/images/vistaModulo.jpg" }
+  constructor(private rolUsuarioService : RolUsuarioService){ this.fullImagePath ="../../assets/images/vehiculos.jpg", this.vistaModulo ="../../assets/images/auto1.jpg" }
 
   crear_conductor : boolean = false;
   editar_conductor : boolean = false;
@@ -46,10 +46,10 @@ export class VehiculoComponent {
     this.rolUsuarioService.findAllPermiso().subscribe(dato => { this.serguridadArray = dato 
       for(var elementoSeguridad in this.serguridadArray){
         if(localStorage.getItem("rol_id_usuario") === this.serguridadArray[elementoSeguridad].id_rol){         
-          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.crearAccion = true }
-          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.verAccion = true }
-          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.editarAccion = true }
-          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "conductores"){ this.eliminarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].crear && this.serguridadArray[elementoSeguridad].modulo == "Vehiculos"){ this.crearAccion = true }
+          if(this.serguridadArray[elementoSeguridad].ver && this.serguridadArray[elementoSeguridad].modulo == "Vehiculos"){ this.verAccion = true }
+          if(this.serguridadArray[elementoSeguridad].editar && this.serguridadArray[elementoSeguridad].modulo == "Vehiculos"){ this.editarAccion = true }
+          if(this.serguridadArray[elementoSeguridad].eliminar && this.serguridadArray[elementoSeguridad].modulo == "Vehiculos"){ this.eliminarAccion = true }
         }        
       }
       

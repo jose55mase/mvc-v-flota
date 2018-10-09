@@ -65,7 +65,8 @@ export class UserListComponent implements OnInit {
 
 
 @Component({  
-  templateUrl: './modalUserVista.html',  
+  templateUrl: './modalUserVista.html',
+  styleUrls: ['./modalUserVista.css'],
   providers: [UserService]
 })
 export class ModalUserVista implements OnInit{

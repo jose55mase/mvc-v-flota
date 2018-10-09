@@ -4,6 +4,8 @@ import { MatPaginator, MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialog
 import { ConductorService } from '../service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalConductorEditar } from '../conductor.editar/conductor.editar.component';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'conductor-eliminar',
@@ -55,18 +57,21 @@ export class ConductorEliminarComponent implements OnInit {
 
 @Component({  
   templateUrl: './modalConductorEliminar.html',  
-  providers: [ConductorService],
+  providers: [ConductorService, LogsService],
   
 })
 export class ModalConductorEliminar implements OnInit{
   conductor : Conductor;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private conductorService : ConductorService, private modalService: NgbModal ,public modal: MatDialogRef<ModalConductorEditar>) {
+  private logs : Logs;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private conductorService : ConductorService,private logsService : LogsService, private modalService: NgbModal ,public modal: MatDialogRef<ModalConductorEditar>) {
     if (sessionStorage.getItem("conductor")) {
       this.conductor = JSON.parse(sessionStorage.getItem("conductor"));
     } else {
       this.conductor = new Conductor();
     }
-
+    this.logs = new Logs();     
+    this.logs.modulo = "Conductor",
+    this.logs.accion = "Eliminar"
   }
   
   ngOnInit(){  };
@@ -75,6 +80,7 @@ export class ModalConductorEliminar implements OnInit{
   closeResult: string;
   public editarConductor(content){
     this.conductorService.guardarCanductor(this.conductor).subscribe(dato => {  })
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )
     this.modal.close();
     this.modalService.open(content, { size: 'sm' });
   }

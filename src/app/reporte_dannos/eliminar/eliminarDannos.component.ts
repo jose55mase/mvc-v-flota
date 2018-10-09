@@ -7,6 +7,8 @@ import { Router } from "@angular/router";
 import { Mantenimiento } from '../../modelo/mantenimiento.modelo';
 import { Dannos } from '../../modelo/dannos.modelo';
 import { DannosService } from '../../reporte_dannos/dannosService';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'eliminarDannos',
@@ -60,24 +62,29 @@ export class EliminarDannosComponent implements OnInit {
 // Este componenet es para las modales
 @Component({  
   templateUrl: './modalDannoEliminar.html',  
-  providers: [ DannosService ]
+  providers: [ DannosService, LogsService ]
 })
 export class ModalDannosEliminar implements OnInit{
   danno: Dannos;
   private dannos: Dannos[];
+  private logs : Logs;
   ngOnInit(){  };
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router : Router, private dannosService : DannosService, private modalService: NgbModal) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router : Router, private logsService : LogsService, private dannosService : DannosService, private modalService: NgbModal) {
    
     if (sessionStorage.getItem("danno")) {
       this.danno = JSON.parse(sessionStorage.getItem("danno"));
     } else {
       this.danno = new Dannos();
     }
+    this.logs = new Logs();     
+    this.logs.modulo = "Siniestro",
+    this.logs.accion = "Eliminar"
   }
   public confirmarEliminar(content){
     this.modalService.open(content, { size: 'sm' });
   }
   public eliminarDanno(dannos){
     this.dannosService.delete(dannos)
+    this.logsService.crearlog(this.logs).subscribe( dato => { } ) 
   }
 }

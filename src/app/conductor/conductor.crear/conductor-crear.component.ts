@@ -21,8 +21,10 @@ export class ConductorCrearComponent  {
   private conductor: Conductor;
   private logs : Logs;
   constructor( private conductorService : ConductorService, private logsService : LogsService ) { 
-    this.logs = new Logs();
-    this.conductor = new Conductor();
+    this.conductor = new Conductor();   
+    this.logs = new Logs();     
+    this.logs.modulo = "Conductor",
+    this.logs.accion = "Crear"
     
   }
   nombre : string = "[a-z].*"
@@ -35,12 +37,7 @@ export class ConductorCrearComponent  {
   creaConductor(): void{
     if(this.conductor.correo != ""){      
       this.conductorService.guardarCanductor(this.conductor).subscribe( dato => { alert(" Usuario creado " ) } )
-      this.logsService.crearlog(this.logs).subscribe( dato => { 
-        this.logs.usuario = "jose crea",
-        this.logs.modulo = "Conductor",
-        this.logs.accion = "crear"
-        
-      } )
+      this.logsService.crearlog(this.logs).subscribe( dato => { } )
     }else{
       alert("correo")
     }
