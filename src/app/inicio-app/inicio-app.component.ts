@@ -41,6 +41,7 @@ export class InicioAppComponent implements OnInit {
     this.inicioImagen = "../../assets/images/vehiculos.jpg";
     this.logoFondo = "../../assets/images/logoFondo.png";
     this.sinFondo = "../../assets/images/logosinfodo.png";
+    
 
   }
 

@@ -6,6 +6,8 @@ import { Vehiculo } from '../../modelo/vehiculos.modele';
 import { VehiculoService } from '../vehiculoService';
 import { MatPaginator, MatTableDataSource, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 
 @Component({
@@ -61,16 +63,20 @@ export class VehiculoEditarComponent implements OnInit {
 
 @Component({  
   templateUrl: './modalVehiculoEditar.html',  
-  providers: [VehiculoService]
+  providers: [VehiculoService, LogsService]
 })
 export class ModalVehiculoEditar implements OnInit{
   vehiculo: Vehiculo;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService, public ver : MatDialog, private modalService: NgbModal) {
+  private logs : Logs;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private vehiculoService: VehiculoService, public ver : MatDialog, private modalService: NgbModal, private logsService : LogsService) {
     if (sessionStorage.getItem("vehiculo")) {
       this.vehiculo = JSON.parse(sessionStorage.getItem("vehiculo"));
     } else {
       this.vehiculo = new Vehiculo();
     }
+    this.logs = new Logs();     
+    this.logs.modulo = "Vehiculo",
+    this.logs.accion = "Editar"
 
   }
   estado = 'bien';
@@ -82,5 +88,6 @@ export class ModalVehiculoEditar implements OnInit{
       
     );
     this.modalService.open(content, { size: 'sm' })
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )  
   }
 }

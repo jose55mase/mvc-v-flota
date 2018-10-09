@@ -4,6 +4,8 @@ import { UserService } from "./../user.service";
 import { MAT_DIALOG_DATA, MatDialog, MatPaginator, MatTableDataSource } from '@angular/material';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from "@angular/router";
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'app-user-eliminar',
@@ -61,27 +63,33 @@ export class UserEliminarComponent implements OnInit {
 
 @Component({  
   templateUrl: './modalUserEliminar.html',  
-  providers: [UserService]
+  providers: [UserService, LogsService]
 })
 export class ModalUserEliminar implements OnInit{
   user: User;
+  private logs : Logs;
   private users: User[];
   ngOnInit(){}
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router : Router, private userService : UserService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router : Router, private userService : UserService, private logsService : LogsService) {
    
     if (sessionStorage.getItem("user")) {
       this.user = JSON.parse(sessionStorage.getItem("user"));
     } else {
       this.user = new User();
     }
+    this.logs = new Logs();     
+    this.logs.modulo = "Usuario",
+    this.logs.accion = "Eliminar"
+ 
 
   }  
   
   public eliminar(user : User): void{
     this.userService.saveOrUpdate(this.user)
       .subscribe( dato => {  } ) 
-  } 
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )      
+  }
  
 }
 

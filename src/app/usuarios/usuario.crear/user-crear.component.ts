@@ -8,15 +8,18 @@ import { Alert } from 'selenium-webdriver';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RolUsuarioService } from '../../rolUsuario/service';
 import { Rol } from '../../modelo/rol.module';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'app-user-crear',
   templateUrl: './user-crear.component.html',  
   styleUrls: ['./user-crear.component.css'],
-  providers: [UserService]
+  providers: [UserService, LogsService]
 })
 export class UserCrearComponent implements OnInit {
   private user : User
+  private logs : Logs;
   
   users : User[];
   roles : Rol[]
@@ -38,8 +41,11 @@ export class UserCrearComponent implements OnInit {
     
   }
 
-  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private modalService: NgbModal,private rolUsuarioService : RolUsuarioService ) { 
-    this.user = new User();  
+  constructor(private userService: UserService, public ver : MatDialog, private fb :FormBuilder, private logsService : LogsService, private modalService: NgbModal,private rolUsuarioService : RolUsuarioService ) { 
+    this.user = new User();
+    this.logs = new Logs();     
+    this.logs.modulo = "Usuario",
+    this.logs.accion = "Crear"
  
   }
 
@@ -90,7 +96,8 @@ export class UserCrearComponent implements OnInit {
   public saveOrUpdate(content): void{  
     this.userService.saveOrUpdate(this.user).subscribe(       
       dato => {  }
-    )          
+    )
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )          
   }
 
   tomarTodoRol(){

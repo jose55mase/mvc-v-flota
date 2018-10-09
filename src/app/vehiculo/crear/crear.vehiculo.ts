@@ -5,20 +5,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vehiculo } from '../../modelo/vehiculos.modele';
 import { VehiculoService } from '../vehiculoService';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 
 @Component({
   selector: 'vehiculo-crear',
   templateUrl: './crear.vehiculo.html',
   styleUrls: ['./crear.vehiculo.css'],
-  providers:[VehiculoService]
+  providers:[VehiculoService, LogsService]
 })
 export class VehiculoCrearComponent implements OnInit {
   formulario : FormGroup;
   private vehiculo : Vehiculo; 
   modelo :string; 
-  constructor(private fb:FormBuilder, private vehiculoServise : VehiculoService,  private modalService: NgbModal) {
+  private logs : Logs;
+  constructor(private fb:FormBuilder, private vehiculoServise : VehiculoService,  private modalService: NgbModal, private logsService : LogsService) {
     this.vehiculo = new Vehiculo()
+    this.logs = new Logs();     
+    this.logs.modulo = "Vehiculo",
+    this.logs.accion = "Crear"
         
   }
   ngOnInit(){
@@ -50,5 +56,6 @@ export class VehiculoCrearComponent implements OnInit {
   public crearVehiculo(): void{ 
     this.vehiculoServise.crearVehiculo(this.vehiculo).subscribe( 
       dato => {  } );
+    this.logsService.crearlog(this.logs).subscribe( dato => { } )  
   }
 }

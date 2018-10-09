@@ -4,15 +4,18 @@ import { UserService } from "./../user.service";
 import { UserServiceE } from "./user-crear.service";
 import { MAT_DIALOG_DATA, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from "@angular/router";
+import { Logs } from '../../modelo/logs';
+import { LogsService } from '../../logs/logsService';
 
 @Component({
   selector: 'app-editar-editar',
   templateUrl: './user-editar.component.html',
   
-  providers: [UserService]
+  providers: [UserService, LogsService]
 })
 export class UserEditarComponent implements OnInit {
 
+  
   private users: User[];
   user : User;
   listaUser : User[];
@@ -60,14 +63,15 @@ export class UserEditarComponent implements OnInit {
 
 @Component({  
   templateUrl: './modalUserEditar.html',  
-  providers: [ UserServiceE]
+  providers: [ UserServiceE, LogsService]
 })
 export class ModalUserEditar implements OnInit{
   user: User;
+  private logs : Logs;
   private users: User[];
   ngOnInit(){}
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router : Router, private userServiceE : UserServiceE) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private logsService : LogsService, private router : Router, private userServiceE : UserServiceE) {
    
     if (sessionStorage.getItem("user")) {
       this.user = JSON.parse(sessionStorage.getItem("user"));
@@ -75,13 +79,16 @@ export class ModalUserEditar implements OnInit{
       this.user = new User();
     }
 
+    this.logs = new Logs();     
+    this.logs.modulo = "Usuario",
+    this.logs.accion = "Editar"
+
   }  
   
   public editar(user : User): void{
     this.userServiceE.saveOrUpdate(this.user)
-      .subscribe( dato => {
-        alert("Usuario se a actualizado ")
-      } ) 
+      .subscribe( dato => { } ) 
+      this.logsService.crearlog(this.logs).subscribe( dato => { } ) 
   }
  
 }

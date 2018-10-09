@@ -37,7 +37,7 @@ export class CreaMantenimientoComponent implements OnInit {
       .subscribe(results => {
         this.results = results.results;
       });
-      this.logs = new Logs();     
+    this.logs = new Logs();     
     this.logs.modulo = "Mantenimiento",
     this.logs.accion = "Crear"
   }
