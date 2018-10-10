@@ -189,5 +189,19 @@
         </mat-tab>
     </div>
 
+    <div *ngIf="rutas" ><!--Invitado-->
+        <mat-tab class="menu-modulos" label="Rutas Vehiculos">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon"><i  class="material-icons">confirmation_numbe</i></mat-icon>
+                Rutas
+            </ng-template>
+            <mat-drawer-container class="example-container" autosize>               
+                <ruta-modulo></ruta-modulo>               
+            </mat-drawer-container>           
+        </mat-tab>
+    </div>
+
+    
+
 </mat-tab-group>
       

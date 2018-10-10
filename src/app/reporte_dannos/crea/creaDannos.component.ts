@@ -8,6 +8,8 @@ import { DannosService } from '../../reporte_dannos/dannosService';
 import { Mantenimiento } from '../../modelo/mantenimiento.modelo';
 import { Logs } from '../../modelo/logs';
 import { LogsService } from '../../logs/logsService';
+import { VehiculoService } from '../../vehiculo/vehiculoService';
+import { Vehiculo } from '../../modelo/vehiculos.modele';
 
 
 
@@ -16,7 +18,7 @@ import { LogsService } from '../../logs/logsService';
   selector: 'creaDannos',
   templateUrl: './creaDannos.component.html',
   styleUrls: ['./creaDannos.component.css'],
-  providers: [CreaDannosComponent, LogsService]
+  providers: [CreaDannosComponent, LogsService, VehiculoService]
 })
 export class CreaDannosComponent implements OnInit {
   private danno : Dannos;
@@ -24,8 +26,9 @@ export class CreaDannosComponent implements OnInit {
   informe :string; 
   fechas = new Date();
   private logs : Logs;
+  vehiculos : Vehiculo[]
 
-  constructor(private dannosService: DannosService, private fb:FormBuilder, private logsService : LogsService) {
+  constructor(private vehiculoService : VehiculoService,private dannosService: DannosService, private fb:FormBuilder, private logsService : LogsService) {
     this.danno = new Dannos();
     this.logs = new Logs();     
     this.logs.modulo = "Siniestro",
@@ -35,6 +38,7 @@ export class CreaDannosComponent implements OnInit {
 
   ngOnInit(){ this.validar();
     setTimeout(() => this.staticAlertClosed = true, 20000);
+    this.vehiculosTodos();
   }
 
   public validar( ){
@@ -54,11 +58,10 @@ export class CreaDannosComponent implements OnInit {
     this.logsService.crearlog(this.logs).subscribe( dato => { } ) 
   }
 
-  vehiculo: any=[
-    {id: 1 ,name : '12-AB', ruta : 'Laureles'  },
-    {id: 2 ,name : '45-B', ruta : 'Laureles'  },
-    {id: 3 ,name : '1-LFB-H', ruta : 'Laureles'  },
-    {id: 4 ,name : '1G-H', ruta : 'Poblado'  },
-  ]
+  vehiculosTodos(){
+    this.vehiculoService.verVehiculos().subscribe(
+      dato => { this.vehiculos = dato }
+    )
+  }
 }
 

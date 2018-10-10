@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">            
+                <div class="card" style="width: 10rem;">
+                    <div class="modal-dialog text-center">
+                        <div class="col-12 user-img">   
+                            <img [src]="fullImagePath" width="120px" height="100px">            
+                        </div>                                  
+                    </div>
+                    <div class="card-body">                    
+                        <h5 class="card-title"><a class="navbar-brand" >Rutas</a></h5> <strong>A.P.L</strong>             
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <div *ngIf="crearAccion">
+                        <li class="list-group-item"><button mat-raised-button color="primary"  (click)="crear()">Crear <i class="large material-icons">add_circle</i></button></li>
+                    </div>                
+                    <div *ngIf="verAccion">
+                        <li class="list-group-item"><button mat-raised-button class="btn btn-info" (click)= "ver()">Ver <i class="material-icons">visibility</i></button></li>
+                    </div>
+                    <div *ngIf="editarAccion">
+                        <li class="list-group-item"><button mat-raised-button class="btn btn-warning" (click)= "editar()">Editar<i class="material-icons"> build</i></button></li>
+                    </div>
+                    <div *ngIf="eliminarAccion">
+                        <li class="list-group-item"><button mat-raised-button class="btn btn-danger" (click)="eliminar()">Eliminar<i class="material-icons">delete_sweep</i></button></li>
+                    </div>
+                    </ul>
+                </div>        
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            <br>
+            <br>
+            <div *ngIf="crear_conductor" class="container-fluid">
+                <mat-toolbar>Crea  <i class="large material-icons"> add_circle</i></mat-toolbar>
+                <ruta-crear></ruta-crear>
+            </div>
+        
+            <div *ngIf="editar_conductor" class="container-fluid" >
+                <mat-toolbar>Editar <i class="material-icons"> build</i></mat-toolbar>
+                <ruta-editar></ruta-editar>
+            </div>
+        
+            <div *ngIf="ver_conductor" class="container-fluid">
+                <mat-toolbar>Ver <i class="large material-icons">visibility</i></mat-toolbar>
+                <ruta-list></ruta-list>
+            </div>
+        
+            <div *ngIf="eliminar_conductor" class="container-fluid">
+                <mat-toolbar>Eliminar <i class="material-icons"> delete_sweep</i></mat-toolbar>
+                
+            </div>
+
+            <div *ngIf="main">
+                    <div class="card text-center" >
+                    <div class="card-header">
+                       <h3><p>Autobuses el poblado laureles</p></h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                                        <div class="card-header">Rutas A.P.L</div>
+                                        <div class="card-body">                                    
+                                            <div class="col-12 user-img">   
+                                                <img [src]="vistaModulo" width="220px" height="200px">            
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-8">
+                                    <h5 class="card-title">Rutas</h5>
+                                    <p class="card-text">
+                                        Las Rutas registrdos en el A.P.L  desempeñan una lavor de manejo de rutas de los vehiculos
+                                        durante el dia laborado,  de varios rutas para un vehiculo, el conductor quien hace los viajes diarios con una jornada estandar y 
+                                        el caiman quien realiza el relevo cuando este conductor no esta realizando tareas dentro de el sistema como las rutas, majo del los vehiculos o algun
+                                        reporte de daño. esperamos Crees, edites, o borres con mucho responsabilidad.
+                                        <br><br>
+                                        Si tienes algun tipo de inquietu o has cometido alguna falla realiza contacto con el super usuario o el encargado
+                                    </p>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="card-footer text-muted">
+                        Hoy es : {{fecha}}
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

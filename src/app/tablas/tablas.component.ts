@@ -20,17 +20,18 @@ export class TablasComponent implements OnInit{
   mantenimiento : boolean = false;
   dannos : boolean = false;
   usuario : boolean = false;
-  contador : number = 0;
+  rutas : boolean = false;
 
-  ngOnInit(){ this.contar();
+  ngOnInit(){  }
 
-  }
+  verRutas(){
+    this.rutas = true;
 
-  public contar(){
-    for(var i ; i >= 100; i++){
-      this.contador = this.contador + i      
-    }
-    this.contador
+    this.conductor = false;    
+    this.dannos =  false;
+    this.vehiculo = false;
+    this.mantenimiento = false;
+    this.usuario = false;    
   }
 
   verConductor(){
@@ -40,7 +41,9 @@ export class TablasComponent implements OnInit{
     this.vehiculo = false;
     this.mantenimiento = false;
     this.usuario = false;
+    this.rutas = false
   }
+
   verVehiculo(){
     this.vehiculo = true;
 
@@ -48,6 +51,7 @@ export class TablasComponent implements OnInit{
     this.conductor = false;
     this.mantenimiento = false;
     this.usuario = false;
+    this.rutas = false
   }
   verMantenimiento(){
     this.mantenimiento = true;
@@ -56,6 +60,7 @@ export class TablasComponent implements OnInit{
     this.conductor = false;
     this.vehiculo = false;
     this.usuario = false;
+    this.rutas = false
   }
   verDanno(){
     this.dannos =  true;
@@ -64,6 +69,7 @@ export class TablasComponent implements OnInit{
     this.mantenimiento = false;
     this.vehiculo = false;
     this.usuario = false;
+    this.rutas = false
   }
   verUsuario(){
     this.usuario = true;
@@ -72,6 +78,7 @@ export class TablasComponent implements OnInit{
     this.conductor = false;
     this.mantenimiento = false;
     this.vehiculo = false;
+    this.rutas = false
   }
 
 }

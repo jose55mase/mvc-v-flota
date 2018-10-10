@@ -1,0 +1,30 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Nombres :: {{conductor.nombre}}</span>
+    </div>  
+</div>
+  
+<mat-radio-group [(ngModel)]="conductor.estado">
+    <mat-radio-button value="false">Inactivar Conductor</mat-radio-button>
+       
+</mat-radio-group>
+
+<button  class="btn btn-primary  btn-block" (click)="editarConductor(content)">Completar operación</button>
+<button  class="btn btn-primary  btn-block" (click)="salirModal()">Salir</button>
+
+<ng-template #content let-c="close" let-d="dismiss">            
+         
+    <div class="alert alert-success">
+        <h5>operación  <strong>exitosa</strong> </h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>    
+    </div> 
+        
+    <div class="modal-body">
+        <p>A.P.L</p>
+        <button class="btn btn-primary" (click)="c('Save click')">Listo !</button>
+    </div>        
+</ng-template>
+      

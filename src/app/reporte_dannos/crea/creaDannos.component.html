@@ -12,8 +12,8 @@
  
       <div class="form-group">
         <label for="Reporte">Vehiculo afectado</label>
-        <select class="form-control"  formControlName ="vehiculo" [(ngModel)]="danno.vehiculo" >
-          <option  *ngFor="let item of vehiculo" [value]="item.name">  {{item.name}} ::  {{item.ruta}}</option>                  
+        <select class="form-control" formControlName="vehiculo" placeholder="Vehiculo" [(ngModel)]="danno.vehiculo" >
+          <option *ngFor="let item of vehiculos" [value]="item.placa">{{item.placa}}</option>                  
         </select>
       </div>
 

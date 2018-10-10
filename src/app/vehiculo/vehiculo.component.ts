@@ -35,9 +35,7 @@ export class VehiculoComponent {
   crearAccion : boolean = false;
   verAccion : boolean = false;
   editarAccion : boolean = false;
-  eliminarAccion : boolean = false;
-
-  
+  eliminarAccion : boolean = false;  
 
 
   //FUNCCION PARA DETERMINAR BOTONES DE USUARIO

@@ -1,0 +1,69 @@
+Rutas de  : {{ruta.id}}
+<hr>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Vehiculo : </span>
+        <input type="text"  [(ngModel)]="ruta.vehiculo">
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Conductor : </span>
+        <input type="text"  [(ngModel)]="ruta.conductor">
+    </div>   
+</div>
+ 
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Ruta :</span>
+        <input type="text"  [(ngModel)]="ruta.ruta">
+    </div>   
+</div>    
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">Combustible inicial :</span>
+        <input type="text"  [(ngModel)]="ruta.inicial_combustible">
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">km inicial : </span>
+        <input type="text"  [(ngModel)]="ruta.inicial_km">
+    </div>   
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <i class="material-icons">local_offer</i>
+        <span class="input-group-text" id="basic-addon1">fecha : {{ruta.fecha}}</span>
+    </div>   
+</div>
+<button class="btn btn-primary btn-block" mat-dialog-close  (click)="editarRuta(content)" >Completar operación</button>
+<button class="btn btn-primary btn-block" mat-dialog-close>Salir</button>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">            
+         
+    <div class="alert alert-success">
+        <h5>operación  <strong>exitosa</strong> </h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>    
+    </div> 
+        
+    <div class="modal-body">
+        <p>A.P.L</p>
+        <button class="btn btn-primary" (click)="c('Save click')">Listo !</button>
+    </div>        
+</ng-template>
+      

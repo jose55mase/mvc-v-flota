@@ -45,6 +45,8 @@
             <a (click)="verMantenimiento()"><i class="material-icons">commute</i> Mantenimiento  </a>
             <a (click)="verDanno()"><i class="material-icons">rv_hookup</i>  Siniestro  </a>
             <a (click)="verUsuario()"><i class="material-icons">people</i> Usuarios </a>
+            <a (click)="verRutas()"><i class="large material-icons">confirmation_number</i> Rutas  </a>
+           
                          
             </div>
         </div>
@@ -68,6 +70,10 @@
 
             <div *ngIf="usuario">
                 <user-administrador></user-administrador>
+            </div>
+
+            <div *ngIf="rutas">
+                <ruta-administrador></ruta-administrador>
             </div>
         </div>
     </div>

@@ -104,6 +104,12 @@ import { CreaRolComponent } from './rolUsuario/crear-rol/crear-rol.component'; /
 import { CreaPermisoComponent } from './rolUsuario/crear-permiso/crear-permiso.component'; // CREAR PERMISOS
 import { EditarRolComponent } from './rolUsuario/editar-ro/editar-rol.component'; // EDITAR ROL
 import { EditarPermisoComponent } from './rolUsuario/editar-permiso/editar-permiso.component'; // EDITAR PERMISO
+/*    RUTAS */
+import { RutaComponent } from './rutas/ruta.component';
+import { RutaCrearComponent } from './rutas/ruta.crear/ruta-crear.component';
+import { RutaListarComponent, ModalRutaVista } from './rutas/ruta-lista/ruta-list.component';
+import { RutaEditarComponent, ModalRutaEditar } from './rutas/ruta.editar/ruta.editar.component';
+import { RutaAdministradorComponent, ModalRutaAdministrador } from './rutas/ruta.administrador/ruta.administrador.component';
 
 
 @NgModule({
@@ -182,9 +188,15 @@ import { EditarPermisoComponent } from './rolUsuario/editar-permiso/editar-permi
     CreaPermisoComponent, // CREAR PERMISOS
     EditarRolComponent, // EDITAR ROL
     EditarPermisoComponent, //EDITAR PERMISO
-    
-  
-    
+    /*   RUTAS    */
+    RutaComponent,
+    RutaCrearComponent,
+    RutaListarComponent,
+    ModalRutaVista,
+    RutaEditarComponent,
+    ModalRutaEditar,
+    RutaAdministradorComponent,
+    ModalRutaAdministrador,
 
   ],
 
@@ -223,6 +235,10 @@ import { EditarPermisoComponent } from './rolUsuario/editar-permiso/editar-permi
     CreaPermisoComponent,
     EditarRolComponent, // EDITAR ROL
     EditarPermisoComponent, // EDITAR PERMISO
+    /*   RUTAS    */
+    ModalRutaVista,
+    ModalRutaEditar,
+    ModalRutaAdministrador,
     
     
   ],

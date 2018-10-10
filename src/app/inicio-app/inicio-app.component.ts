@@ -53,7 +53,6 @@ export class InicioAppComponent implements OnInit {
   Vehiculos : boolean = false;
   logs : boolean = false;
   roles : boolean = false;
-
   rutas : boolean = true;
 
   public listaUsuarios(){
